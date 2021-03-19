@@ -1,0 +1,44 @@
+name: Generate site
+
+on:
+  push:
+    branches:
+    - source
+
+jobs:
+  generate-site:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source branch
+      uses: actions/checkout@v3
+
+    - name: Install pandoc
+      run: |
+        cd /tmp
+        curl -LO https://github.com/jgm/pandoc/releases/download/2.19.2/pandoc-2.19.2-1-amd64.deb
+        sudo dpkg -i pandoc-2.19.2-1-amd64.deb
+
+    - name: Install filter
+      run: |
+        cd filter
+        # Note: node 18 is already installed on github's VM
+        node --version
+        # Install dependencies
+        npm install
+        npm list
+
+    - name: Build site
+      run: |
+        git worktree add _site -b main
+        ( cd _site; git rm -rf .; )
+        make
+
+    - name: Push build output to main branch
+      run: |
+        cd _site
+        git add .
+        git config user.email guillaume.edward.koenig@gmail.com
+        git config user.name "Guillaume Koenig"
+        git commit --amend -m 'Generated; see branch "source"'
+        git push -f origin main
