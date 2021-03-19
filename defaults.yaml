@@ -1,0 +1,10 @@
+from: markdown-smart+tex_math_single_backslash
+shift-heading-level-by: 2
+template: src/default.html
+metadata:
+  document-css: true
+  linestretch: 1.5
+  mainfont: unset
+  fontsize: 20px
+filters:
+  - ./filter/filter.js
