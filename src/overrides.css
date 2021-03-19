@@ -1,0 +1,24 @@
+html { font-size: 112.5%; }
+
+header { margin-bottom: 2em; }
+
+li > a { color: revert; }
+
+li > a:visited { color: revert; }
+
+h1 > a { text-decoration: none; }
+
+.katex { font-size: 1.1em; }
+
+.katex-display {
+  overflow-x: auto;
+  padding-block: 5px; /* vertical scroll bug */
+}
+
+@media (max-width: 600px) {
+  .katex-display {
+    /* overcome padding on mobile */
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+}
