@@ -1,0 +1,13 @@
+from: markdown-smart+tex_math_single_backslash
+shift-heading-level-by: 2
+template: src/default.html
+metadata:
+  document-css: true
+  linestretch: 1.5
+  mainfont: unset
+  fontsize: 20px
+css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css
+filters:
+  - ./filter/filter.js
+  - ast-transforms.lua
