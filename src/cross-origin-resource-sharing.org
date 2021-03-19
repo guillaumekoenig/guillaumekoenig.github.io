@@ -1,0 +1,29 @@
+#+TITLE: Cross-origin resource sharing (CORS)
+#+DATE: [2021-04-13 Tue]
+
+In CORS, you're not allowing your page to request a resource on another domain. It's the other way around: you're allowing the resource (eg, API) to be requested from other domains. Hence the configuration is on the resource, not the requester.
+
+* The actors
+
+- The browser
+- The cookies
+- The domain hosting a resource, on which users are logged in
+- The other domain trying to request the resource
+
+* The nominal case
+
+Cookies are domain specific. Once set on a domain, a cookie is transmitted with every request to that domain. This is whether by clicking a link, entering an address in the URL bar, or, and of particular interest to us, by a script on a page[fn:1].
+
+Cookies are great to maintain logged in status when browsing different pages on a domain: once initially logged in, cookies are saved for that domain in the client's browser. Then for every request made to the domain, the browser sends them along. The server checks said cookies and knows the request is legitimate for that user.
+
+* The problematic case CORS is protecting against
+
+A page on an unrelated domain makes a request to the resource. Without further protection mechanism, cookies would be sent along and the server would find that the user is logged in and legitimate, even though the request might have been issued without the user knowing!
+
+Example: User has visited resource mybank.com/account and is still logged in. Now they visit shadywebsite.com. shadywebsite.com could have a script making requests to mybank.com, performing actions on the user's account without them knowing.
+
+CORS is the further protection mechanism.
+
+* Footnotes
+
+[fn:1] Actually, in the asynchronous case such as from a script, cookies are sent only if withCrendentials on the xhr object is set to true.  

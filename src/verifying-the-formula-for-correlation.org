@@ -1,0 +1,17 @@
+#+TITLE: Verifying the formula for correlation
+#+DATE: [2019-11-19 Tue]
+
+#+BEGIN_SRC haskell
+mean xs = sum xs / fromIntegral (length xs)
+covar xs ys = mean [x*y|(x,y)<-zip xs ys] - mean xs*mean ys
+var xs = covar xs xs
+corr xs ys = covar xs ys / sqrt(var xs*var ys)
+
+let xs = [-4..5]; ys = map (^2) xs in corr xs ys
+#+END_SRC
+
+This snippet yields 0.36760731104690386. You can check it against any spreadsheet software implementation of correlation. Create a column of integers from -4 to 5, a column of the corresponding squares, and finally evaluate the correlation on the two lists.
+
+I got my first implementation of covar wrong. With two lists of numbers, the assumption is that you're giving a list of points (pairs made of one value of $X$ with one value of $Y$) having equal probability. I was instead giving equal probability to /all/ the pairs of the cross product $X \times Y$. (Note: in such case $X$ and $Y$ are independent and correlation is null.)
+
+A property of corr is that scaling or adding a scalar to one of the random variables doesn't change the correlation value. This is why correlation is measuring linear correlation.

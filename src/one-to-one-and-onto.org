@@ -1,0 +1,67 @@
+#+TITLE: One-to-one and onto
+#+DATE: [2021-01-24 Sun]
+
+Section 5.2 of /How to prove it/.
+
+* Definitions
+
+- A function $f : A \rightarrow B$ is one-to-one (injective) ? $\neg\exists a_1\in A\exists a_2\in A (f(a_1) = f(a_2) \land a_1 \neq a_2)$.
+- A function $f : A \rightarrow B$ is onto (surjective) ? $\forall b\in B \exists a\in A (f(a) = b)$.
+
+One way to think about injective and surjective is as properties of the range of the function. Injective: each element of the range is mapped from at most one element (of the domain). Surjective: each element of the range is mapped from at least one element (of the domain).
+
+If the function is both injective and surjective, each element of the range is mapped from at most and at least one element of the domain, ie it's mapped from exactly one element of the domain. The function is bijective.
+
+In another book, I have seen the definition of injective and surjective being applied to relations (not just functions). However in that case injective and surjective together do not imply bijective, since unlike a function, a relation doesn't have to map every element of the domain to an element of the range.
+
+* Theorems
+
+- 5.2.3 One-to-one is logically equivalent to $\forall a_1\in A \forall a_2 \in A (f(a_1) = f(a_2) \rightarrow a_1 = a_2)$.
+
+* Practice
+
+** Let $A = \mathbb{R} \setminus \{1\}$, and let $f : A \rightarrow A$ be defined as $f(x) = \frac{x+1}{x-1}$. (a) Show that $f$ is one-to-one and onto. (b) Show that $f \circ f = i_A$.
+
+(a) One-to-one: Let $(x_1,x_2) \in A^2$ such that $f(x_1) = f(x_2)$. That equality is equivalent to:
+
+\begin{align*}
+(x_1+1)(x_2-1) &= (x_2+1)(x_1-1) \\
+x_1x_2-x_1+x_2-1 &= x_2x_1-x_2+x_1-1 \\
+x_1 &= x_2.
+\end{align*}
+
+Onto: Let $y\in A$. Let $x = \frac{y+1}{y-1}$. Then $f(x) = y$. Proof that $x \in \mathbb{R} \setminus \{1\}$, ie $x\neq 1$: Suppose $x=1$, then $y-1=y+1$, which is false. Hence $x\neq 1$.
+
+(b) Let $x\in A$. Then $(f\circ f)(x) = f(f(x)) = \dots = 2x/2 = x$.
+
+** Let $A = \mathcal{P}(\mathbb{R})$ and $B = \mathcal{P}(A)$. Define $f : B \rightarrow A$ by the formula $f(\mathcal{F}) = \cup\mathcal{F}$. (a) Find $f(\{\{1,2\},\{3,4\}\})$. (b) Is $f$ one-to-one? Is it onto?
+
+(a) $\{1,2,3,4\}$
+
+(b) Not one-to-one: $f(\{\{1,2,3\},\{4\}\}) = \{1,2,3,4\}$ (same as (a)).
+
+Onto: Let $a\in A$, ie $a \subseteq \mathbb{R}$. Let $b \in B$ defined as $b = \{a\}$. Then $f(b) = a$.
+
+** Suppose $f : A \rightarrow B$ and $C \subseteq A$. $f\restriction C$ was already shown to be a function. (a) Prove that if $f$ is one-to-one, then so is $f\restriction C$. (b) Prove that if $f\restriction C$ is onto, then so if $f$. (c) Give examples to show that the converses of parts (a) and (b) are not true.
+
+(a) Let $(c_1,c_2)\in C$ such that $(f\restriction C)(c_1) = (f\restriction C)(c_2)$. Since $f\restriction C = f \cap C \times B$, you also have $f(c_1) = f(c_2)$. Since $f$ is one-to-one, $c_1 = c_2$.
+
+(b) Let $b\in B$. Since $f\restriction C$ is onto, $\exists c \in C ((f \restriction C)(c) = b)$. But since $C \subseteq A$, $c \in A$ and $f(c) = b$. Hence $f$ is onto.
+
+(c) $A=\{1,2\}, C=\{1\}, B=\{1\}$. $f = \{(1,1),(2,1)\}$, $f \restriction C = \{(1,1)\}$. $f \restriction C$ is one-to-one, but $f$ isn't.
+
+$A=\{1,2\}, C=\{1\}, B=\{1,2\}$. $f = \{(1,2),(2,2)\}$, $f \restriction C = \{(1,2)\}$. $f$ is onto, but $f \restriction C$ isn't.
+
+** Suppose $f: A \rightarrow B$ and $R$ is a relation on $A$. Let $S = \{(x,y) \in B \times B \mid \exists u \in A \exists v \in A (f(u) = x \land f(v) = y \land (u,v) \in R)\}$. (a) Prove that if $R$ is reflexive and $f$ is onto then $S$ is reflexive. (b) Prove that if $R$ is transitive and $f$ is one-to-one then $S$ is transitive.
+
+(a) Assume $R$ is reflexive and $f$ is onto. Let $x \in B$. Since $f$ is onto, $\exists u \in A (f(u) = x)$. Since $R$ is reflexive, $(u,u) \in R$. Then $(x,x) \in S$, hence $S$ is reflexive.
+
+(b) Assume $R$ is transitive and $f$ is one-to-one. Let $(x,y) \in B^2$ and $(y,z) \in B^2$. Then $\exists (u,v) \in A^2 (f(u) = x \land f(v) = y \land (u,v) \in R)$. And $\exists (w,t) \in A^2 (f(w) = y \land f(t) = z \land (w,t) \in R)$. But since $f$ is one-to-one, $w = v$, hence $(v,t) \in R$. Since $(u,v) \in R \land (v,t) \in R$ and $R$ is transitive, $(u,t) \in R$. Then $(x,z) \in S$.
+
+** Suppose $A$, $B$, and $C$ are sets and $f : A \rightarrow B$. (a) Prove that if $f$ is onto, $g : B \rightarrow C$, $h : B \rightarrow C$, and $g \circ f = h \circ f$, then $g = h$. (b) Suppose that $C$ has at least two elements, and for all functions $g$ and $h$ from $B$ to $C$, if $g \circ f = h \circ f$ then $g = h$. Prove that $f$ is onto.
+
+(a) Let $(x,y) \in g \subseteq B \times C$, prove $(x,y) \in h$. Since $f$ is onto, $\exists a \in A (f(a) = x)$. Then $(g \circ f)(a) = (h \circ f)(a)$, ie $g(f(a)) = y = h(f(a))$, ie $(x,y) \in h$. Then according to theorem 5.1.4, $g = h$.
+
+(b) Prove that $\forall b \in B \exists a \in A (f(a) = b)$. Let $b \in B$, prove $\exists a \in A (f(a) = b)$. Pick two functions $g$ and $h$ such that $g(b) \neq h(b)$, which is possible since $C$ has at least two elements. Then $g \neq h$ and $g \circ f \neq h \circ f$. In other words $\exists a' \in A (g(f(a')) \neq h(f(a'))))$.
+
+However, at this point $f(a')$ is not necessarily $b$. Let's go back a bit and choose more precise $g$ and $h$. Let $(c_1,c_2) \in C^2$ such that $c_1 \neq c_2$ and $g = B \times \{c_1\}$ and $h = (B \setminus \{b\}) \times \{c_1\} \cup \{(b,c_2)\}$. Now it is still the case that $g(b) \neq h(b)$, but it's the only such value of $B$. Since $g(f(a')) \neq h(f(a'))$, it has to be that $f(a') = b$.

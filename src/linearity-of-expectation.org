@@ -1,0 +1,29 @@
+#+TITLE: Linearity of expectation
+#+DATE: [2019-11-02 Sat]
+
+You can apply transformations to random variables. $X'=cX$ is the new random variable with the values for $X$ scaled by scalar $c$, they have the same probability as before. $Z = X\,op\,Y$ is the new random variable based on outcomes $(x_k,y_{k'})$ with probability $P(X=x_k,Y=y_{k'})$ $=P(X=x_k \cap Y=y_{k'})$, and mapped to real number $x_k\,op\,x_{k'}$. Now let's prove the linearity of expectation :
+
+\begin{align*}
+E(cX)
+&=\sum_k c\,x_k\,P(X'=c\,x_k)\\
+&=\sum_k c\,x_k\,P(X=x_k)\\
+&=c\sum_k x_k\,P(X=x_k)\\
+&=cE(x)\\
+E(X+Y)
+&=\sum_{(k,k')} (x_k+y_{k'})P(X=x_k,Y=y_{k'})\\
+&=\left(\sum_k x_k \sum_{k'} P(X=x_k,Y=y_{k'})\right)+\left(\sum_{k'} y_{k'} \sum_k P(X=x_k,Y=y_k')\right)\\
+&=\left(\sum_k x_k P(X=x_k)\right)+\left(\sum_{k'} y_{k'} P(Y=y_{k'})\right)\\
+&=E(X)+E(Y)
+\end{align*}
+
+And with it, let's derive the following useful alternate formula for $Var$ :
+
+\begin{align*}
+Var(X)
+&=E\left((X-E(X))^2\right)\\
+&=E\left(X^2-2\,X\,E(X)+E(X)^2\right)\\
+&=E\left(X^2\right)-2\,E(X)\,E(X)+E\left(E(X)^2\right)\\
+&=E\left(X^2\right)-E(X)^2
+\end{align*}
+
+This formula is better for computing $Var$ than the definition. With the definition, you need to keep all values to subtract the updated mean from them. With this new formula, you need only keep three scalars : the number of items seen so far, the sum of squared values, the sum of values. It's the formula used in the [[https://github.com/freebsd/freebsd/blob/master/sbin/ping/ping.c#L1440-L1445][ping command]] to compute the standard deviation of round-trip times.

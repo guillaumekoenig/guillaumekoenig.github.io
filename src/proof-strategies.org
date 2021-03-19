@@ -1,0 +1,18 @@
+#+TITLE: Proof strategies
+#+DATE: [2020-05-29 Fri]
+
+Working on a proof involves rewriting the givens and the goal. It ends when all the steps of going from givens to the goal have been spelled out.
+
+Prove $P \rightarrow Q$ (goal) : assume $P$ (given), prove $Q$ (goal). This can be applied repeatedly for multiple conditionals. Another possibility is to prove the contrapositive $\neg Q\rightarrow\neg P$. There is no hard and fast rule to which is better, try one and if it doesn't work, try the other.
+
+Prove $\neg P$ (goal) : it's usually easier to prove a positive statement. Try to transform it by distributing the negation. This is not always possible, ie if $P$ doesn't contain logical connectives. In general, if it's not obvious how to reach the goal, proof by contradiction might work : assume the negation of the goal, and reach a contradiction with one of the other givens. 
+
+Prove $\forall x(...)$ (goal) : let $x$ be arbitrary and prove the statement. Since $x$ was arbitrary, you can conclude it's true for all $x$. For example with $\forall x(P(x) \rightarrow Q(x))$, start by letting $x$ be arbitrary, then prove $P(x) \rightarrow Q(x)$ (see the first item), then conclude the implication is true for all $x$.
+
+Prove $\exists x(...)$ (goal). You just need to find one value for $x$ which makes the statement true. The proof starts by letting $x$ be one of those values (given), then proving the statement to be true. If the statement is an equation, scratch work (not included in the proof) would involve solving for $x$.
+
+There are also strategies to use givens. Consider for example the following rules of inference :
+- /modus ponens/ : knowing $P$ and $P\rightarrow Q$, you can infer $Q$
+- /modus tollens/ : knowing $\neg Q$ and $P\rightarrow Q$, you can infer $\neg P$
+
+/How to prove it/ (2nd ed.) has a nice summary of strategies to apply on goals and givens on pp. 376-379.

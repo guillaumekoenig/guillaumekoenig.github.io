@@ -1,0 +1,60 @@
+#+TITLE: Inverses of functions
+#+DATE: [2021-01-31 Sun]
+
+Sections 5.3-5.4 of /How to prove it/.
+
+* Definitions
+
+- $f : A \rightarrow B$ and $X \subseteq A$. /Image/ of $X$ under $f$ ? $f(X) = \{f(x) \mid x \in X\}$.
+- $f : A \rightarrow B$ and $Y \subseteq B$. /Inverse image/ of $Y$ under $f$ ? $f^{-1}(Y) = \{a \in A\mid f(a) \in Y\}$.
+
+Note that in this definition, $f^{-1}$ needs not be a function. (However check that it matches the other definition of $f^{-1}$ defined when $f$ is one-to-one and onto.)
+
+* Theorems
+
+- 5.3.2 Suppose $f : A \rightarrow B$ and $f^{-1} : B \rightarrow A$. Then $f^{-1} \circ f = i_A$ and $f \circ f^{-1} = i_B$.
+- 5.3.3 (1) If there is a function $g : B \rightarrow A$ such that $g \circ f = i_A$ then $f$ is one-to-one.
+- 5.3.3 (2) If there is a function $g : B \rightarrow A$ such that $f \circ g = i_B$ then $f$ is onto.
+- 5.3.4 ($f : A \rightarrow B$ one-to-one and onto) $\leftrightarrow$ ($f^{-1} : B \rightarrow A$) $\leftrightarrow$ (there is a function $g : B \rightarrow A$ such that $g \circ f = i_A$ and $f \circ g = i_B$).
+- 5.3.5 Suppose $f : A \rightarrow B$, $g : B \rightarrow A$, $g \circ f = i_A$ and $f \circ g = i_B$. Then $g = f^{-1}$.
+
+* Practice
+** Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be defined by the formula $f(x) = \frac{2x+5}{3}$. Show that $f$ is one-to-one and onto, and find a formula for $f^{-1}(x)$.
+
+Let $g : \mathbb{R} \rightarrow \mathbb{R}$ defined by $g(y) = (3y-5)/2$. Then $\forall x \in \mathbb{R} ((g \circ f)(x) = x)$ and $\forall x \in \mathbb{R} ((f \circ g)(x) = x)$. Hence $g \circ f = i_{\mathbb{R}}$ and $f \circ g = i_{\mathbb{R}}$. By 5.3.4, $f$ is one-to-one and onto. By 5.3.5, $g = f^{-1}$.
+
+** Let $f : \mathbb{R} \rightarrow \mathbb{R^{+}}$ be defined by $f(x) = 10^{2-x}$. Show that $f$ is one-to-one and onto, and find a formula for $f^{-1}(x)$.
+
+Let $g : \mathbb{R^{+}} \rightarrow \mathbb{R}$ be defined by $g(y) = 2-\log_{10}(y)$. Similarly to above, $f$ is one-to-one and onto and $g = f^{-1}$.
+
+** Let $f : A \rightarrow B$. Prove that if there is a function $g : B \rightarrow A$ such that $f \circ g = i_B$ then $f$ is onto.
+
+Let $g : B \rightarrow A$ such that $f \circ g = i_B$. Let $b \in B$. Then $(f \circ g)(b) = b$. Then $a = g(b) \in A$ satisfies $f(a) = b$. Hence $f$ is onto.
+
+** Suppose $f : A \rightarrow B$ and $g : B \rightarrow A$. (a) Prove that if $f$ is one-to-one and $f \circ g = i_B$, then $g = f^{-1}$. (b) Prove that if $f$ is onto and $g \circ f = i_A$, then $g = f^{-1}$. (c) Prove that if $f \circ g = i_B$ but $g \circ f \neq i_A$, then $f$ is onto but not one-to-one, and $g$ is one-to-one but not onto.
+
+(a) By the previous exercise (proof of 5.3.3 (2)), $f$ is also onto. By 5.3.4, $f^{-1} : B \rightarrow A$. Let $b \in B$. Since $f$ is onto, $\exists a \in A (f(a) = b)$. Furthermore $f^{-1}(b) = a$. Since $f(g(b)) = i_B(b) = b$ and $f$ is one-to-one, $g(b) = a$. Hence $\forall b \in B(g(b) = f^{-1}(b))$, ie $g = f^{-1}$.
+
+(b) By 5.3.3 (1), $f$ is also one-to-one. By 5.3.3, $f^{-1} : B \rightarrow A$. You can deploy a similar strategy to (a), but here is a different one. $g \circ f = i_A$, so $g \circ f \circ f^{-1} = i_A \circ f^{-1}$. By 5.3.2 $f \circ f^{-1} = i_B$, hence it follows that $g = f^{-1}$.
+
+(c) By 5.3.3 (2), $f$ is onto. If $f$ were one-to-one, then by (a) you would have $g = f^{-1}$ and hence $f^{-1} \circ f \neq i_A$. So $f$ is not one-to-one.
+
+By swapping $g$ for $f$, $A$ for $B$ in 5.3.3 (1), $g$ is one-to-one. By swapping similarly in (b), $g$ cannot be onto as that would imply $f = g^{-1}$ and $g \circ g^{-1} \neq i_A$. Hence $g$ is not onto.
+
+Commentary: It seems that the entire section was written with intermediary proofs building on top of earlier proofs. Maybe this is in general a good strategy, splitting a proof in as many small proofs as necessary.
+
+** Suppose $f : A \rightarrow B$, $g : B \rightarrow A$, and $f \circ g = i_B$. Let $A' = Ran(g) \subseteq A$. (a) Prove that for all $x \in A'$, $(g \circ f)(x) = x$. (b) Prove that $f \restriction A'$ is a one-to-one, onto function from $A'$ to $B$ and $g = (f \restriction A')^{-1}$.
+
+(a) Let $x \in A' = Ran(g)$. Then $\exists b \in B (g(b) = x)$. Then $f(g(b)) = f(x)$ and $f(g(b)) = i_B(b) = b$, so $f(x) = b$. Hence $g(b) = g(f(x)) = x$.
+
+(b) In (a) you have proven that $g \circ (f \restriction A') = i_{A'}$. Furthermore the assumption was that $f \circ g = i_B$, so $(f \restriction A') \circ g = i_B$. Hence by 5.3.4, $f \restriction A'$ is one-to-one and onto, and by 5.3.5, $g = (f \restriction A')^{-1}$.
+
+** Let $f : \mathbb{R} \rightarrow \mathbb{R}$ be defined by $f(x) = 4x - x^2$. Let $B = Ran(f)$. (a) Find $B$. (b) Find a set $A \subseteq \mathbb{R}$ such that $f \restriction A$ is a one-to-one, onto function from $A$ to $B$, and find a formula for $(f \restriction A)^{-1}$.
+
+(a) With calculus, the max is at $4-2x=0$, ie $x=2$. Hence $B=]-\infty;f(2)]$.
+
+(b) Let's remain on the lookout for $A$ and try to find $g : B \rightarrow A$ such that $\forall b \in B ((f \circ g)(b) = b)$, or in other words : $4g(b) - g^2(b) = b$.
+
+Solving for $g(b)$, you get the expression $\frac{-4 \pm \sqrt{16-4b}}{-2}$. It's defined for $b \in ]-\infty;4] = B$, and for $g$ to be a function, only one value can be assigned to $g(b)$. Let's say it's $\frac{-4 + \sqrt{16-4b}}{-2}$. Then $Ran(g) = A = [2;+\infty[$.
+
+Now $(f \circ g)(b) = \dots =  b$. According to the previous exercise, $(f \restriction A)^{-1} = g$, defined by $g(b) = \frac{-4 + \sqrt{16-4b}}{-2}$.

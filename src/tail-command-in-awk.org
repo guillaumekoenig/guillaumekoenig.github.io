@@ -1,0 +1,16 @@
+#+TITLE: Tail command in awk
+#+DATE: [2019-09-24 Tue]
+
+#+BEGIN_SRC awk :cmd-line -v n=5 :in-file tail-command-in-awk.org
+{ a[NR%n] = $0 }
+END {
+  for (i=NR+1-min(n,NR); i<NR+1; i++)
+    print a[i%n]
+}
+function min(a,b) { return a<b?a:b }
+#+END_SRC
+
+You can invoke it with ~awk -v n=5 -f tail.awk~.
+
+Here ~min(n,NR)~ is the number of lines saved in the circular buffer at the end. A previous version without ~min(n,NR)~ gave wrong results for documents with fewer than n lines. A reminder to pay attention to assumptions.
+

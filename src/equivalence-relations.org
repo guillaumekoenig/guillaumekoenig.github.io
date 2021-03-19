@@ -1,0 +1,61 @@
+#+TITLE: Equivalence relations
+#+DATE: [2020-12-27 Sun]
+
+Section 4.6 of /How to prove it/.
+
+* Definitions
+- A relation R is an equivalence relation ? R is reflexive, symmetric and transitive.
+- The equivalence class of x (with respect to R, R equivalence relation) ? [x]_R = {y ∈ A | yRx}.
+- Set of all equivalence classes of elements of A (with respect to R, R equivalence relation) ? A/R (A modulo R) = {[x]_R | x ∈ A}.
+- F is a partition of A ? 1) ∪F = A. 2) F is pairwise disjoint. 3) ∀X ∈ F (X ≠ ∅).
+
+Note the definition of partition is unrelated to the definition of equivalence.
+
+- m ∈ ℕ^*, (x,y) ∈ ℤ^2, x is congruent to y modulo m ? ∃k ∈ ℤ (x - y = km).
+- notation of x is congruent to y modulo m ? x ≡ y (mod m). (Weirdly, the Unicode name for ≡ is "identical to".)
+
+* Theorems
+- 4.6.4 If R is an equivalence relation on A, then A/R is a partition of A.
+- 4.6.6 If F is a partition of A, then S = ∪_{X ∈ F} (X × X) is an equivalence relation and A/S = F.
+- m ∈ ℕ^*, C_m = {(x,y) ∈ ℤ^2 | x ≡ y (mod m)} is an equivalence relation on ℤ.
+
+* Practice
+** Find all partitions of the set A = {1,2,3}.
+
+- {{1},{2},{3}}
+- {{1,2},{3}}
+- {{1},{2,3}}
+- {{1,3},{2}}
+- {{1,2,3}}
+
+** A is the set of all words in the English language. (a) R = {(x,y) ∈ A × A | the words x and y start with the same letter}. (b) S = {(x,y) ∈ A × A | the words x and y have at least one letter in common}. (c) T = {(x,y) ∈ A × A | the words x and y have the same number of letters}.
+
+(a) Equivalence class c, c being a letter : [word]_R = {x | the word x starts with letter c}.
+
+(b) S fails transitivity : (bus)S(busy) and (busy)S(yellow), but bus and yellow are not in S-relation.
+
+(c) Equivalence class k ∈ [1..length of longest English word] : [word]_T = {x | x has length k}
+
+** P the set of all people, B the equivalence relation of people born the same day d (d ∈ D, D = [1..366]). P_d the equivalence class of people born on day d. Prove that P/B = {P_d | d ∈ D}.
+
+(→) Let X ∈ P/B = {[p]_B | p ∈ P}, prove X ∈ {P_d | d ∈ D}. Let p ∈ P such that X = [p]_B. Let d be the day p is born on. Then q ∈ [p]_B ↔ qBp ↔ q is born on d ↔ q ∈ P_d. So X = [p]_B = P_d, and hence X ∈ {P_d | d ∈ D}.
+
+(←) Let X ∈ {P_d | d ∈ D}, prove X ∈ P/B = {[p]_B | p ∈ P}. Let d ∈ D such that X = P_d. Let p ∈ P_d (ie we assume there is always someone born on any day d). Then q ∈ P_d ↔ q is born on d ↔ qBp ↔ q ∈ [p]_B. So X = P_d = [p]_B, and hence X ∈ P/B.
+
+** Suppose R is an equivalence relation on A. Let F = A/R, and let S be the equivalence relation determined by F. In other words, S = ∪_{X ∈ F} (X × X). Prove that S = R.
+
+(→) Let (x,y) ∈ S, prove (x,y) ∈ R. Since (x,y) ∈ S, ∃X ∈ F ((x,y) ∈ X × X). Let X ∈ F such that x ∈ X and y ∈ X. By definition of A/R (= F), ∃z ∈ A (X = [z]_R). In other words xRz and yRz. Since R is transitive and symmetric, xRy.
+
+(←) Let (x,y) ∈ R, prove (x,y) ∈ S. Since xRy, y ∈ {z ∈ A | zRx} = [x]_R. But since R is reflexive, you also have x ∈ [x]_R. So (x,y) ∈ [x]_R × [x]_R, and [x]_R ∈ A/R (= F) by definition. Hence (x,y) ∈ ∪_{X ∈ F} (X × X) = S.
+
+** Suppose m is a positive integer. Prove that for all integers a, b, c, and d, if a ≡ c (mod m) and b ≡ d (mod m) then a + b ≡ c + d (mod m) and ab ≡ cd (mod m).
+
+Let k ∈ ℤ such that a - c = km and let k' ∈ ℤ such that b - d = k'm. Then (a + b) - (c + d) = (k + k')m, with (a + b, c + d, k + k') ∈ ℤ^3. And ab = (c + km)(d + k'm) ↔ ab - cd = (k'c + kd + kk'm)m, with (ab, cd, k'c + kd + kk'm) ∈ ℤ^3.
+
+** Suppose F is a partition of A, G is a partition of B, and A and B are disjoint. Prove that F ∪ G is a partition of A ∪ B.
+
+1) Prove that ∪(F ∪ G) = A ∪ B. (→) Let x ∈ ∪(F ∪ G) = ∪_{X ∈ F ∪ G} X. So ∃X ∈ F ∪ G (x ∈ X). If X ∈ F, since F is a partition of A, X ⊆ A and x ∈ A. If X ∈ G, since G is a partition of B, X ⊆ B and x ∈ B. Since this exhausts all possibilities, x ∈ A ∪ B. (←) Let x ∈ A ∪ B. Then x ∈ ∪F ⊆ ∪(F ∪ G) or x ∈ ∪G ⊆ ∪(F ∪ G).
+
+2) Prove that elements of F ∪ G are pairwise disjoint. Let (X,Y) ∈ (F ∪ G)^2. Suppose X ≠ Y, prove X ∩ Y = ∅. If X and Y both belong to F, their intersection is empty by F being a partition (similar if they both belong to G). If X ∈ F and Y ∈ G, then X ⊆ A and Y ⊆ B. But A and B are disjoints, hence so are subsets (similar if X ∈ G and Y ∈ F).
+
+3) Prove that ∀X ∈ F ∪ G (X ≠ ∅). Let X ∈ F ∪ G. If X ∈ F, then X ≠ ∅ since F is a partition. Similar argument for G.

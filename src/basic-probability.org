@@ -1,0 +1,19 @@
+#+TITLE: Basic probability
+#+DATE: [2019-10-26 Sat]
+
+I enjoyed [[https://brilliant.org][brilliant.org]]'s probability course. What it forced me to think through :
+- An event is a subset of outcomes of an experiment
+- A random variable $X$ maps outcomes to real numbers $\{x_1,..,x_k\}$
+- Random variables don't have probability, events do ; $P(X)$ is meaningless, $P(X=x_k)$ is the probability of the event "the set of outcomes that are mapped to $x_k$"
+- $X$ and $Y$ usually represent random variables, whereas $A$ and $B$ represent events
+- $P(A,B)=P(A \cap B)$ is the joint probability of $A$ and $B$
+- $P(A|B)P(B)=P(A \cap B)$ defines the conditional probability of $A$ given $B$ (including when $P(B)=0$)
+- "$A$ and $B$ are independent" is equivalent to $P(A|B)=P(A)$
+- "$A$ and $B$ are disjoint" or "$A$ and $B$ are mutually exclusive" has the meaning of set theory : $A \cap B = \emptyset$
+- $E(X)=\sum_k x_kP(X=x_k)$ is the /expected value/ of $X$ (also /mean/, "espérance" in French)
+- $Var(X)=E\left((X-E(X))^2\right)$ is the variance of $X$ (the square root of the variance is called the standard deviation)
+- $Cov(X,Y)=E((X-E(X))(Y-E(Y)))$ is the covariance of $X$ and $Y$
+
+Expectation, variance, and covariance require real numbers and hence apply to random variables (events don't have that requirement). Variance and covariance are /means/ by definition.
+
+Now let's derive some useful things from here. See the [[./linearity-of-expectation.org][next]] posts.

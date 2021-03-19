@@ -1,0 +1,14 @@
+#+TITLE: Binary search complexity
+#+DATE: [2019-09-28 Sat]
+
+Binary search is a method for searching an element in an ordered collection of elements.
+
+It works by comparing the element searched for to the one in the middle of the collection. If the element searched for is bigger, reiterate on the subcollection of elements bigger than the middle. If it's smaller, on the subcollection of elements smaller than the middle.
+
+Let's assume the collection in input has $n$ elements, $n$ power of 2 for simplicity.
+
+During binary search, each additional step reduces the collection size by 2. In equation form : $s_n=s_{n/2}+1$.
+
+It is not quite a regular arithmetic recurrence, but can be made into one by transforming indexes into $n=2^m$ ($n$ was assumed to be a power of 2).
+
+The equation is now an arithmetic recurrence : $s_{2^m}=s_{2^{m-1}}+1$. Solving it assuming initial value $s_1=0$ yields $s_n=m=log_2(n)$.

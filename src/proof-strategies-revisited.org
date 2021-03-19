@@ -1,0 +1,50 @@
+#+TITLE: Proof strategies revisited
+#+DATE: [2020-07-22 Wed]
+#+OPTIONS: num:nil
+
+* Prelude
+Statements in logic are either true or false. Also, true and false are the negation of each other.
+
+A statement is a (possibly complex) formula of boolean logic.
+
+* Definition of proof
+In the first chapter of his book /How to prove it/, Velleman mentions at least three times what defines a valid proof.
+
+A proof is valid if the premises can't be true without the conclusion being true as well.
+
+* Meaning of proof
+The premises are statements that are given to be true at the beginning of the proof. The conclusion is a statement (constructed from the premises) that must be true at the end of the proof.
+
+Said differently, the conclusion must not be false when the premises are true, for the proof to be valid.
+
+This is useful because once you've established the proof to be valid, you can use it with whatever conditions make the premises true, and be sure that the conclusion is true as well!
+
+* Proof strategies, [[./proof-strategies.org][again]]
+In the context of proofs, the premises and the conclusion are expressed as true statements (by convention). /Assume $P$, prove/ $Q$ means /assume $P$ is true, prove $Q$ is true/. But of course, in general, formulas take on either true or false.
+
+** Proving $P\rightarrow Q$
+Notice there is no premise here. Only a conclusion. You want to know whether its formula always comes out true.
+
+#+CAPTION: Truth table of $\rightarrow$
+| $P$ | $Q$ | $P\rightarrow Q$ |
+|-----+-----+------------------|
+| F   | F   | T                |
+| F   | T   | T                |
+| T   | F   | F                |
+| T   | T   | T                |
+
+When $P$ is false, the formula is true no matter what $Q$ is (first two lines of the table). So the remaining question is when $P$ is true. If, from $P$ being true, you show that $Q$ must be true as well, then the formula is true in that situation (fourth line of the table). Since you've shown that $Q$ must be true if $P$ is true, the formula is never false (ie the third line of the table never applies).
+
+Hence the proof strategy : to prove $P\rightarrow Q$, assume $P$ (ie assume $P$ is true) and show $Q$ (ie show $Q$ is true). In that case $P\rightarrow Q$ is always true.
+
+** Disproving
+A valid proof means that the conclusion is always true (given true premises). Having a single case where the conclusion is false (given true premises), fails that definition, and suffices to invalidate a proof.
+
+Example : To disprove $P\rightarrow Q$, finding a single instance where $P$ is true but $Q$ is false suffices, because then the formula is false (third line of the table). In that case $P\rightarrow Q$ is _not_ always true.
+
+** Proof by contradiction
+The basic idea in proving a statement by contradiction is first to assume its negation, then show it yields a conclusion that is impossible.
+
+Proving $\neg Q$. Assume $Q$, and find some statement $R$ such that $Q \rightarrow R$ and $Q \rightarrow \neg R$. If $Q$ were true, $R$ would be both true and false. This is impossible in first order logic. Since $Q$ can't be true, it must be false.
+
+Proving $P_{1} \land P_{2}\rightarrow\neg Q$. This is logically equivalent to $\neg (P_{1} \land P_{2} \land Q)$. You can assume its negation and show $\neg P_{1}$ or $\neg P_{2}$ (ie contradict one of the givens).

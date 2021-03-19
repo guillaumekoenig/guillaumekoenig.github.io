@@ -1,0 +1,79 @@
+#+TITLE: Ordering relations
+#+OPTIONS: toc:nil num:nil
+#+DATE: [2020-11-10 Tue]
+
+Section 4.4 of /How to prove it/.
+
+* Definitions
+- R is antisymmetric (on A) ? ∀(x,y) ∈ A × A (xRy ∧ yRx → x = y). Example : ≤.
+- R is a partial order (on A) ? Reflexive, transitive, and *antisymmetric*.
+- R is a total order (on A) ? Partial order relation, and ∀(x,y) ∈ A × A (xRy ∨ yRx).
+- R partial order on A, B ⊆ A ; b is an R-smallest element of B ?
+  b ∈ B ∧ ∀x ∈ B (bRx). (It's in relation with all the elements.)
+- R partial order on A, B ⊆ A ; b is an R-minimal element of B ?
+  b ∈ B ∧ ¬∃x ∈ B (xRb ∧ x ≠ b). (No other element is in relation with it.)
+- R partial order on A, B ⊆ A ; a is a lower bound of B ?
+  a ∈ A ∧ ∀x ∈ B (aRx). (Similar to smallest except need not belong to B.)
+- What is the least upper bound of a set ?
+  The smallest element in the set of upper bounds for that set (needs not exist).
+
+* Notes
+- Is identity symmetric or antisymmetric ? Both.
+- Do antisymmetric and asymmetric have the same definition ? No.
+
+* Practice
+** Suppose R is a relation on A. You might think R could not be both antisymmetric and symmetric, but this isn't true. Prove that R is both antisymmetric and symmetric iff R ⊆ i_A.
+
+→ R is antisymmetric and symmetric. Prove R ⊆ i_A, ie ∀(x,y) ∈ R ((x,y) ∈ i_A). Let (x,y) ∈ R be arbitrary. Then (y,x) ∈ R due to R being symmetric. Then y = x due to R being antisymmetric. Then (x,y) = (x,x) ∈ i_A.
+
+← R ⊆ i_A. Prove R antisymmetric and symmetric. Let (x,y) ∈ R be arbitrary. Since R ⊆ i_A, x = y, and (x,y) = (x,x) = (y,x). Hence (y,x) ∈ R, ie R is symmetric. Suppose xRy and yRx. Then x = y simply by the nature of R. Hence R is antisymmetric.
+
+** Suppose R is a partial order on A and S is a partial order on B. Define a relation T on A × B as follows: {((a,b),(a',b')) ∈ (A × B) × (A × B) | aRa' and bSb'}. Show that T is partial order on A × B. If both R and S and total orders, will T also be a total order?
+
+Reflexive. Let (a,b) ∈ A × B be arbitrary. Prove (a,b)T(a,b), ie prove aRa and bSb. This is case since R and S are partial orders, and hence themselves reflexive.
+
+Transitive. Let ((a,b),(a',b')) ∈ T and ((a',b'),(a'',b'')) ∈ T. Prove that ((a,b),(a'',b'')) ∈ T, ie aRa'' and bSb''. Again, this follows from R and S being partial orders, and hence themselves transitive.
+
+Antisymmetric. Same reasoning as for transitiveness.
+
+Total order. Let ((a,b),(a',b')) ∈ (A × B) × (A × B). Prove it or ((a',b'),(a,b)) is an element of T. Since R and S are assumed to be total, (aRa' ∨ a'Ra) ∧ (bSb' ∨ b'Sb). Construct an example where aRa' and b'Sb, but not a'Ra nor bSb'. Then ((a,b'),(a',b)) ∈ T, but neither one of the two elements needed for total ordering are.
+
+** Let D = {(x,y) ∈ ℕ × ℕ | x divides y}. Let B = {x ∈ ℕ | x > 1}. Does B have any minimal elements? If so, what are they? Does B have a smallest element? If so, what is it?
+
+D = {(1,1),(1,2),(1,3)...,(2,2),(2,4),(2,6)...,(3,3),(3,6),(3,9)...}.
+
+Minimal elements (D-minimal elements). You're looking for the set {x ∈ B | ¬∃y ∈ B (yDx ∧ y ≠ x)}. Ie the set of numbers > 1 for which no other number > 1 divides them. Ie it's the set of prime numbers.
+
+Smallest elements (D-smallest elements). You're looking for the set {x ∈ B | ∀y ∈ B (xDy)}. No number > 1 divides all numbers, so the set is empty.
+
+** Suppose R is a partial order on A, B ⊆ A, and b ∈ B. You're given that R^-1 is also a partial order on A in that case. (a) Prove that b is the R-largest element of B iff it is the R^-1-smallest element of B. (b) Prove that b is an R-maximal element of B iff it is in an R^-1-minimal element of B.
+
+(a) b the R-greatest element of B
+    ↔ b ∈ B ∧ ∀x ∈ B (xRb)
+    ↔ b ∈ B ∧ ∀x ∈ B (bR^{-1}x)
+    ↔ b the R^-1-smallest element of B.
+
+(b) b an R-maximal element of B
+    ↔ b ∈ B ∧ ¬∃x ∈ B (bRx ∧ x ≠ b)
+    ↔ b ∈ B ∧ ¬∃x ∈ B (xR^{-1}b ∧ x ≠ b)
+    ↔ b an R^-1-minimal element of B.
+
+Note : it is more succinct to keep the equivalence than separate out the two directions.
+
+** If a subset of a partially ordered set has exactly one minimal element, must that element be a smallest element?
+
+R a partially ordered set on A, B ⊆ A, b ∈ B the only R-minimal element of B. Ie ¬∃x ∈ B (xRb ∧ x ≠ b) ∧ ∀b' ∈ B (¬∃x ∈ B (xRb' ∧ x ≠ b') → b = b'). Prove ∀x ∈ B (bRx).
+
+After trying in earnest, it doesn't seem the proof can be completed. It might mean the premises are insufficient to reach the conclusion, ie the statement is invalid. A counter-example is needed to establish it firmly. (The book provides one but I could not come up with one myself.)
+
+** Suppose R is a partial order on A and B ⊆ A. Let U be the set of all upper bounds for B. (a) Prove that U is closed upward; that is, prove that if x ∈ U and xRy, then y ∈ U. (b) Prove that every element of B is a lower bound for U. (c) Prove that if x is the greatest lower bound of U, then x is the least upper bound of B.
+
+(a) U = {u ∈ A | ∀x ∈ B (xRu)}. Suppose u ∈ U, u' ∈ A, and uRu'. Prove u' ∈ U. Since u ∈ U, u ∈ A ∧ ∀x ∈ B (xRu). Since R is partial order, it is transitive. Since uRu', it follows ∀x ∈ B (xRu'). Hence u' ∈ U.
+
+(b) Prove ∀b ∈ B, ∀x ∈ U (bRx). Let b ∈ B and x ∈ U be arbitrary. Since x ∈ U, ∀y ∈ B (yRx). In particular, b ∈ B, so bRx (universal instantiation).
+
+(c) Focus on the goal. It has two parts. Prove x is an upper bound of B (ie ∀b ∈ B (bRx), and that it is the smallest element of U (ie ∀y ∈ U (xRy)). You're given that x is the greatest lower bound of U.
+
+Part 1. Let b ∈ B be arbitrary. Prove bRx. Given (b), b is a lower bound for U. But so is x. In fact x is the greatest of them, so bRx.
+
+Part 2. Since x is an upper bound of B, x ∈ U. Prove it is the smallest. Let y ∈ U be arbitrary, prove xRy. Since x is a lower bound of U, ∀u ∈ U (xRu). In particular, xRy.
