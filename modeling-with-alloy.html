@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Modeling with Alloy</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: unset;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+  <style>
+    header { margin-bottom: 2em; }
+    body { max-width: 30em; }
+
+    a:not(h1 a), a:visited:not(h1 a) { color: blue; }
+
+    h1 > a { text-decoration: none; }
+
+    .katex { font-size: 1em; }
+
+    .katex-display {
+      overflow-x: auto;
+      padding-block: 10px; /* vertical scroll bug */
+    }
+
+    @media (max-width: 600px) {
+      .katex-display {
+        /* overcome padding on mobile */
+        margin-left: -1em;
+        margin-right: -1em;
+      }
+    }  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><a href="/">Modeling with Alloy</a></h1>
+<!--<p class="date">2021-05-23 Sun</p>-->
+</header>
+<p>Exercises in chapter 3 of <em>Software Abstractions</em>.</p>
+<h3 id="characterizing-trees">Characterizing Trees</h3>
+<pre><code>pred isTree(r: univ -&gt; univ) {
+  some univ
+
+  no x: univ | some x.^r &amp; x  -- no cycle
+  all x: univ | lone r.x      -- each node has at most one parent
+  one x: univ | no r.x        -- exactly one root node
+}
+
+run isTree for 4 but 0 Int</code></pre>
+<p>No cycle: no node is in its transitive closure through r.</p>
+<p>In Alloy's visualizer, Command+N shows more instances.</p>
+<h3 id="spanning-trees">Spanning Trees</h3>
+<p>For a directed graph and directed tree (with isTree from above):</p>
+<pre><code>pred spans(g1,g2: univ -&gt; univ) {
+  g1 in g2
+}
+pred show(g,t1,t2: univ -&gt; univ) {
+  spans [t1,g] and isTree[t1]
+  spans [t2,g] and isTree[t2]
+  t1 not = t2
+}
+run show for 3 but 0 Int</code></pre>
+<p>For an undirected graph but still a directed tree, simply add ~g in
+g.</p>
+<p>The characterization of <a
+href="https://en.wikipedia.org/wiki/Tree_%28graph_theory%29">undirected
+tree is different</a> (in particular, it doesn't require a single root).
+I followed <a
+href="http://cs.brown.edu/courses/cs195y/2017/assignments/alloy-2.html">this
+hint</a>.</p>
+<pre><code>pred isUndirectedTree(r: univ -&gt; univ) {
+  ~r in r  -- symmetric
+  all u,v: univ { u != v =&gt; u-&gt;v in ^r }  -- connected
+  all u,v: univ { u-&gt;v in r =&gt; u-&gt;v not in ^(r - u-&gt;v) }
+    -- no other path, ie acyclic
+  no iden &amp; r  -- no cycle on self
+}
+
+run isUndirectedTree for 4 Univ, 0 Int</code></pre>
+<h3 id="characterizing-rings">Characterizing Rings</h3>
+<pre><code>sig Node {
+  next: set Node
+}
+
+pred isRing() {
+  all n,n&#39;: Node { n-&gt;n&#39; in ^next }  -- connected
+  all n: Node { one n.next }  -- single next element
+}
+
+run isRing for exactly 4 Node</code></pre>
+<hr />
+<h3 id="queens-and-the-need-to-define-sequences">8 queens and the need
+to define sequences</h3>
+<p>[2021-09-07 Tue]</p>
+<p>How do you model a checkerboard? In a standard programming language,
+you'd probably use an array of array, and index into it. In Alloy, not
+so. Everything is a relation. So you might have the set of rows, the set
+of columns, and a relation from rows to columns to represent
+positions.</p>
+<pre><code>sig Row {}
+sig Col {}
+fun row(r: Row): Row-&gt;Col {r &lt;: Row-&gt;Col}
+pred show(r: Row, example: Row-&gt;Col) {
+  example = row[r]
+}
+run show for exactly 4 Row, exactly 4 Col</code></pre>
+<p>The above gives an example of a complete row (a relation from one
+element of Row to every element of Col). Great. What about diagonals?
+This is where it gets more complex. Row and Col elements now need to be
+ordered (you guessed right if you guessed introducing new relations). A
+sequence instead of a full blown order suffices.</p>
+<pre><code>sig A { next: lone A }
+fact {
+  -- remove loops
+  no ^(A&lt;:next) &amp; iden
+  -- no two elements have the same next (including empty)
+  no disj a,a&quot;: A | a.next = a&quot;.next
+}</code></pre>
+<p>Now, both Row and Col need to be ordered. Turns out the only way to
+parameterize types in Alloy is via modules:</p>
+<pre><code>module sequence[T]
+...code using T</code></pre>
+<p>However, you can't write sig T {} now as that would redefine type T
+that you're precisely trying to pass as parameter to the module. Still,
+sig is the only way to introduce new relations to shape via constraints
+(function bodies can only be expressions). So there is this trick of
+wrapping T in a singleton type (which then gives you an expression):</p>
+<pre><code>module sequence[T]
+private one sig Ord {
+  next: T-&gt;lone T
+}
+fun next: T-&gt;T { Ord.next }
+fact {
+  no ^this/next &amp; iden
+  no disj t,t&quot;: T | t.this/next = t&quot;.this/next
+}</code></pre>
+<p><code class="verbatim">Ord.next</code> is the expression. <code
+class="verbatim">this/next</code> is the function (with 0 param). You
+can add first and last in a similar fashion. (prev is simply
+~this/next.) In fact, Alloy already has a module with that
+functionality, called util/ordering. (This is where I got the singleton
+trick from.) It also taps into internals to guarantee that atoms are
+ordered numerically.</p>
+<p>Defining a diagonal is then a matter of saying which starting
+position is in the relation, and given a position in the diagonal, which
+other position is in the diagonal (sort of defining inductively). From
+there you almost have a complete 8 queens.</p>
+<hr />
+<h3 id="reflexive-transitive-closure-operator">Reflexive transitive
+closure operator</h3>
+<p>[2022-08-14 Sun]</p>
+<p>You'd expect the below to give a reflexive, transitive relation.
+Instead, the evaluator doesn't find any instance. What's going on?</p>
+<pre><code>sig A { r: set A }
+run { r = *r } for 4</code></pre>
+<p>Turns out <code class="verbatim">*r = ^r + iden</code>. And iden is
+the identity including <em>all</em> elements of Univ, not just those of
+A. By default, some integers are part of Univ and hence iden. r is
+constrained on A, but also required to include iden which has elements
+outside of A. Clearly that's not possible, hence why there is no
+instance.</p>
+<p>In this case, a fix is to exclude integers from Univ. But it's a bit
+contrived: add another set B, and you have the same problem (B must
+remain empty to satisfy the constraint on A because of this indirect
+reference to Univ). Really *r was meant to be used with the join
+operator (ie, dot in Alloy).</p>
+</body>
+</html>
