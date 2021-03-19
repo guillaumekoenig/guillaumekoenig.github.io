@@ -1,0 +1,11 @@
+- [X] review if there's still a second reflow (-> not if fonts are already loaded)
+- [X] move package to js only (do i still get completion?)
+- [X] integrate into makefile (pick css and fonts from node dep)
+- [X] integrate into github actions
+- [X] git worktree in github actions
+- [ ] filter --version to grab the correct CDN katex.min.css
+- [ ] add a let options = {} that users can pass in as json
+- [ ] review prior art (flalign uses...RawBlock; options to renderToString?)
+- [ ] change name render-with-katex?
+- [ ] add readme (including goal to match pandoc --katex)
+- [ ] support macros
