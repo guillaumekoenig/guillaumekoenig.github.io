@@ -1,0 +1,50 @@
+body {
+    max-width: 34em;
+    margin: 0 auto;
+    width: 95%;
+}
+
+header {
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 1.2em;
+}
+
+h2 {
+    font-size: 1.1em;
+    margin-top: 32px;
+}
+
+h3, h4, h5, h6 {
+    font-size: 1em;
+    margin-top: 32px;
+}
+
+h2 + h3 {
+    margin-top: 16px;
+}
+
+div.sourceCode {
+    margin: 32px 0;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+ol {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+ol li {
+    margin-bottom: 16px;
+}
+
+ol p {
+    display: inline;
+}

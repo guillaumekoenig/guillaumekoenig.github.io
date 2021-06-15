@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Ordered pairs and relations</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Ordered pairs and relations</h1>
+<p class="date">[2020-09-10 Thu]</p>
+</header>
+<p>Sections 4.1-4.3 of <em>How to prove it</em>.</p>
+<h2 id="definitions">Definitions</h2>
+<ul>
+<li>Ordered pair ? (a,b).</li>
+<li>Cartesian product A × B ? {(a,b) | a ∈ A ∧ b ∈ B}.</li>
+<li>Truth set of P(x,y), x ∈ A, y ∈ B ? {(a,b) ∈ A × B | P(a,b)}.</li>
+<li>Relation R from A to B ? R ⊆ A × B.</li>
+<li>Domain(R) ? {a ∈ A | ∃b ∈ B ((a,b) ∈ R)}.</li>
+<li>Range(R) ? {b ∈ B | ∃a ∈ A ((a,b) ∈ R)}.</li>
+<li>R<sup>-1</sup> ? {(b,a) ∈ B × A | (a,b) ∈ R}.</li>
+<li>S ∘ R ? {(a,c) ∈ A × C | ∃b ∈ B ((a,b) ∈ R ∧ (b,c) ∈ S)}.</li>
+<li>R is reflexive (on A) ? ∀x ∈ A (xRx). Example : =.</li>
+<li>R is symmetric (on A) ? ∀(x,y) ∈ A × A (xRy → yRx).</li>
+<li>R is transitive (on A) ? ∀(x,y,z) ∈ A<sup>3</sup> (xRy ∧ yRz → xRz).</li>
+<li>Identity (on A) ? {(x,x) | x ∈ A}.</li>
+</ul>
+<h2 id="theorems">Theorems</h2>
+<ul>
+<li>4.2.5 (S ∘ R)<sup>-1</sup> = R<sup>-1</sup> ∘ S<sup>-1</sup></li>
+<li>4.3.4 R is symmetric iff R = R<sup>-1</sup></li>
+</ul>
+<h2 id="practice">Practice</h2>
+<h3 id="prove-r-is-reflexive-iff-ia-r-r-relation-on-a">Prove R is reflexive iff i<sub>A</sub> ⊆ R (R relation on A)</h3>
+<p>→ Suppose R is reflexive. Prove i<sub>A</sub> ⊆ R, ie ∀(x,y) ∈ i<sub>A</sub>, (x,y) ∈ R. Let (x,y) ∈ i<sub>A</sub> be arbitrary. Since (x,y) ∈ i<sub>A</sub>, (x,y) = (x,x). But since R is reflexive on A, (x,x) ∈ R, and hence (x,y) ∈ R. Since (x,y) was an arbitrary object of i<sub>A</sub>, it's true for all such objects, proving the inclusion.</p>
+<p>← Suppose i<sub>A</sub> ⊆ R. Prove R is reflexive, ie ∀x ∈ A (xRx). Let x be an arbitrary object of A. Then (x,x) ∈ i<sub>A</sub>. But then since i<sub>A</sub> ⊆ R, (x,x) ∈ R.</p>
+<h3 id="suppose-s-is-a-relation-on-a.-let-d-domains-and-r-ranges.-prove-that-id-s-1-s-and-ir-s-s-1">Suppose S is a relation on A. Let D = Domain(S) and R = Range(S). Prove that i<sub>D</sub> ⊆ S<sup>-1</sup> ∘ S and i<sub>R</sub> ⊆ S ∘ S<sup>-1</sup></h3>
+<p>Note S ⊆ A × A, and more precisely S ⊆ D × R. R here is a subset of A, and not a relation. Then S<sup>-1</sup> ∘ S ⊆ D × D (the rightmost relation is used first).</p>
+<p>Let (x,y) ∈ i<sub>D</sub> be arbitrary. Prove (x,y) = (x,x) ∈ S<sup>-1</sup> ∘ S. Since x ∈ D, ∃z ∈ R ((x,z) ∈ S). It follows that (z,x) ∈ S<sup>-1</sup>. Then (x,z) ∈ S ∧ (z,x) ∈ S<sup>-1</sup>, ie (x,x) ∈ S<sup>-1</sup> ∘ S.</p>
+<p>Similar reasoning for i<sub>R</sub>.</p>
+<h3 id="suppose-r1-and-r2-are-relations-on-a.-if-r1-and-r2-are-reflexive-symmetric-transitive-must-r1-r2-also-be">Suppose R<sub>1</sub> and R<sub>2</sub> are relations on A. If R<sub>1</sub> and R<sub>2</sub> are reflexive / symmetric / transitive, must R<sub>1</sub> ∪ R<sub>2</sub> also be ?</h3>
+<p>(a) ∀x ∈ A (xR<sub>1</sub>x ∧ xR<sub>2</sub>x), prove ∀y ∈ A (y(R<sub>1</sub> ∪ R<sub>2</sub>)y). Let y ∈ A be arbitrary. Then (y,y) ∈ R<sub>1</sub> since R<sub>1</sub> is reflexive, and hence (y,y) ∈ R<sub>1</sub> ∪ R<sub>2</sub>. Hence their union must also be reflexive.</p>
+<p>(b) Let (x,y) ∈ R<sub>1</sub> ∪ R<sub>2</sub> be arbitrary. Case (x,y) ∈ R<sub>1</sub>. Then (y,x) ∈ R<sub>1</sub> since R<sub>1</sub> is symmetric, and hence (y,x) ∈ R<sub>1</sub> ∪ R<sub>2</sub>. Case (x,y) ∈ R<sub>2</sub>, same reasoning. This exhausts all cases. Since (x,y) was arbitrary, it's true for all (x,y) elements of the union, proving that the union is symmetric.</p>
+<p>(c) R<sub>1</sub>={(1,2)}, R<sub>2</sub>={(2,3)}. They're individually transitive, but their union isn't.</p>
+<h3 id="suppose-r-and-s-are-symmetric-relations-on-a.-prove-that-r-s-is-symmetric-iff-r-s-s-r.">Suppose R and S are symmetric relations on A. Prove that R ∘ S is symmetric iff R ∘ S = S ∘ R.</h3>
+<p>Because they're symmetric, R = R<sup>-1</sup> and S = S<sup>-1</sup> (the converse is true as well). R ∘ S is symmetric iff R ∘ S = (R ∘ S)<sup>-1</sup>, equivalent to R ∘ S = (R ∘ S)<sup>-1</sup> = S<sup>-1</sup> ∘ R<sup>-1</sup> = S ∘ R.</p>
+<p>Commentary: you could have used the definition of a symmetric relation, but the proof would have been lengthier. Here you're using an equivalent characterization of symmetry, and a reexpression of the inverse of composition (both proved in the book). Hence the need to know not only definitions but also theorems that build on them.</p>
+<h3 id="suppose-r-is-a-relation-on-a.-let-b-x-𝒫a-x-and-define-a-relation-s-on-b-as-follows-sxy-b-b-x-x-y-y-xry.-prove-that-if-r-is-transitive-then-so-is-s.-why-did-the-empty-set-have-to-be-excluded-from-the-set-b-to-make-this-proof-work">Suppose R is a relation on A. Let B = {X ∈ 𝒫(A) | X ≠ ∅)}, and define a relation S on B as follows: S={(X,Y) ∈ B × B | ∀x ∈ X ∀y ∈ Y (xRy)}. Prove that if R is transitive, then so is S. Why did the empty set have to be excluded from the set B to make this proof work?</h3>
+<p>Reuse proof strategies from chapter 3. Given: R is transitive. Goal: S is transitive. Focus on the definition of the goal. S is transitive if ∀X ∈ B ∀Y ∈ B ∀Z ∈ B ((X,Y) ∈ S ∧ (Y,Z) ∈ S → (X,Z) ∈ S). Arbitrary object on goal: let (X,Y,Z) ∈ B<sup>3</sup>, prove (X,Y) ∈ S ∧ (Y,Z) ∈ S → (X,Z) ∈ S (notice you got rid of the quantifiers). Assume (X,Y) ∈ S ∧ (Y,Z) ∈ S, prove (X,Z) ∈ S. Focus on the definition of the new goal, (X,Z) ∈ S: ∀x ∈ X ∀z ∈ Z (xRz). Arbitrary object on the new goal: let (x,z) ∈ (X,Z), prove xRz (you got rid of the quantifiers again). Universal instantiation on given: let y ∈ Y. This is possible because Y ∈ B, and B does not include the empty set. But (X,Y) ∈ S ∧ (Y,Z) ∈ S, so xRy ∧ yRz. And since R is transitive, you finally have xRz. Backing up: since (x,z) was an arbitrary element of (X,Z), you have (X,Z) ∈ S, and since (X,Y,Z) was an arbitrary element of B<sup>3</sup>, you conclude S is transitive.</p>
+<p>Now let's show that the proof is invalid if B includes ∅. The proof is invalid if there is a way for the formula (R transitive → S transitive) to come out false. Note the formula doesn't need to always be false, it just needs to come out false in one instance. Implication comes out false when the antecedent is true but the consequent is false (see <a href="./proof-strategies-revisited.html">Proof strategies revisited</a>). So, assuming R is transitive (and B includes ∅), is there a way for S to not be transitive?</p>
+<ul>
+<li>¬(S transitive)</li>
+<li>↔︎ ¬(∀X ∈ B ∀Y ∈ B ∀Z ∈ B ((X,Y) ∈ S ∧ (Y,Z) ∈ S → (X,Z) ∈ S))</li>
+<li>↔︎ ∃X ∈ B ∃Y ∈ B ∃Z ∈ B ¬((X,Y) ∈ S ∧ (Y,Z) ∈ S → (X,Z) ∈ S)</li>
+<li>↔︎ ∃X ∈ B ∃Y ∈ B ∃Z ∈ B ((X,Y) ∈ S ∧ (Y,Z) ∈ S ∧ (X,Z) ∉ S)</li>
+</ul>
+<p>If you choose Y = ∅, then it is the case that (X,∅) ∈ S ∧ (∅,Z) ∈ S (for all with empty set being true). Let A = {1,2}, R = {(1,1),(1,2)}, R is transitive. B = {∅,{1},{2},{1,2}}. X = {2}, Z = {1}. Then (X,Z) ∉ S since (2,1) ∉ R.</p>
+<h3 id="suppose-a-is-a-set-and-f-𝒫a.-let-r-ab-a-a-for-every-x-a-ab-if-x-a-f-then-x-b-f.-show-that-r-is-transitive.">Suppose A is a set, and F ⊆ 𝒫(A). Let R = {(a,b) ∈ A × A | for every X ⊆ A \ {a,b}, if X ∪ {a} ∈ F then X ∪ {b} ∈ F}. Show that R is transitive.</h3>
+<p>Show that ∀x ∈ A ∀y ∈ A ∀z ∈ A, (x,y) ∈ R ∧ (y,z) ∈ R → (x,z) ∈ R. Let (x,y,z) ∈ A<sup>3</sup> (arbitrary object on goal), show the implication is true. Suppose (x,y) ∈ R ∧ (y,z) ∈ R, show (x,z) ∈ R. In other words, show ∀X ⊆ A \ {x,z}, X ∪ {x} ∈ F → X ∪ {z} ∈ F. Let X ⊆ A \ {x,z} (arbitrary object on new goal), show X ∪ {x} ∈ F → X ∪ {z} ∈ F. Suppose X ∪ {x} ∈ F, show X ∪ {z} ∈ F. But (x,y) ∈ R, so ∀X ⊆ A \ {x,y}, X ∪ {x} ∈ F → X ∪ {y} ∈ F.</p>
+<p>Case y ∉ X. Then since X ∪ {x} ∈ F, it follows X ∪ {y} ∈ F. Then since (y,z) ∈ R, it follows similarly X ∪ {z} ∈ F. Case y ∈ X. Let X' = (X ∪ {z}) \ {y}. Then X' ∪ {x} ∈ F → X' ∪ {y} ∈ F (= X ∪ {z} ∈ F, the last goal). Show X' ∪ {x} ∈ F.</p>
+<p>Let X'' = (X ∪ {x}) \ {y}. Then X'' ∪ {y} ∈ F (= X ∪ {x} ∈ F) → X'' ∪ {z} ∈ F. But since X ∪ {x} ∈ F, X'' ∪ {z} ∈ F. But then X'' ∪ {z} = X' ∪ {x}, so X' ∪ {x} ∈ F, completing the proof.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In general, focus on the goal, and in particular its definition. The given is considered after, to prove the goal. Also, rid yourself of quantifiers using "arbitrary object" on goal and "universal instantiation" on given (see infer and goal strategies in Proof Designer).</p>
+<p>Knowing theorems on top of definitions is useful for some proofs.</p>
+</body>
+</html>

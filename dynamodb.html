@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DynamoDB</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">DynamoDB</h1>
+<p class="date">[2021-06-14 Mon]</p>
+</header>
+<p>This is how I think about whether I've modeled things right in DynamoDB: on a given page the user is on, is all the data coming from the same machine?</p>
+<p>If the entities modeling the data are scattered across tables, the answer is no. That's because the hash key is different, and so is the partition, and hence the machines where the data is retrieved from may be different.</p>
+<p>If the entities are all folded in a single table, and the data for the user is queried with a single hash key, the answer is yes. That's because then the data is in one partition, on a single machine. Each entity is mapped by a sort key.</p>
+</body>
+</html>

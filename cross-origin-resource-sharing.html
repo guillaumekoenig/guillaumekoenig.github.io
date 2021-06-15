@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Cross-origin resource sharing (CORS)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Cross-origin resource sharing (CORS)</h1>
+<p class="date">[2021-04-13 Tue]</p>
+</header>
+<p>In CORS, you're not allowing your page to request a resource on another domain. It's the other way around: you're allowing the resource (eg, API) to be requested from other domains. Hence the configuration is on the resource, not the requester.</p>
+<h2 id="the-actors">The actors</h2>
+<ul>
+<li>The browser</li>
+<li>The cookies</li>
+<li>The domain hosting a resource, on which users are logged in</li>
+<li>The other domain trying to request the resource</li>
+</ul>
+<h2 id="the-nominal-case">The nominal case</h2>
+<p>Cookies are domain specific. Once set on a domain, a cookie is transmitted with every request to that domain. This is whether by clicking a link, entering an address in the URL bar, or, and of particular interest to us, by a script on a page<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Cookies are great to maintain logged in status when browsing different pages on a domain: once initially logged in, cookies are saved for that domain in the client's browser. Then for every request made to the domain, the browser sends them along. The server checks said cookies and knows the request is legitimate for that user.</p>
+<h2 id="the-problematic-case-cors-is-protecting-against">The problematic case CORS is protecting against</h2>
+<p>A page on an unrelated domain makes a request to the resource. Without further protection mechanism, cookies would be sent along and the server would find that the user is logged in and legitimate, even though the request might have been issued without the user knowing!</p>
+<p>Example: User has visited resource mybank.com/account and is still logged in. Now they visit shadywebsite.com. shadywebsite.com could have a script making requests to mybank.com, performing actions on the user's account without them knowing.</p>
+<p>CORS is the further protection mechanism.</p>
+<h2 id="footnotes">Footnotes</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Actually, in the asynchronous case such as from a script, cookies are sent only if withCrendentials on the xhr object is set to true.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

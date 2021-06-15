@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Generating function</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Generating function</h1>
+<p class="date">[2020-02-19 Wed]</p>
+</header>
+<p>The common example of generating function is that of the Fibonacci sequence (defined by the recurrence <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20a_%7Bn%2B2%7D%3Da_%7Bn%2B1%7D%2Ba_%7Bn%7D" alt="a_{n+2}=a_{n+1}+a_{n}" title="a_{n+2}=a_{n+1}+a_{n}" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20a_0%3D0" alt="a_0=0" title="a_0=0" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20a_1%3D1" alt="a_1=1" title="a_1=1" class="math inline" />). It isn't obvious at all that you can find a closed-form (non-recursive) expression for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20a_%7Bn%7D" alt="a_{n}" title="a_{n}" class="math inline" />, similar to an arithmetic or geometric recurrence. With the generating function "trick", you can!</p>
+<p>An infinitely derivable function <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20f" alt="f" title="f" class="math inline" /> has a unique Taylor series expansion. What if you define the coefficients to be precisely the elements of the Fibonacci sequence? ie :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0Af%28x%29%20%3D%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%5Cfrac%7Bf%5E%7B%28n%29%7D%280%29%7D%7Bn%21%7Dx%5En%20%3D%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20a_n%20x%5En%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n = \sum_{n=0}^{\infty} a_n x^n
+\end{align*}
+" title="\begin{align*}
+f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n = \sum_{n=0}^{\infty} a_n x^n
+\end{align*}
+" class="math display" />
+<p>Given the Fibonacci relation :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0Aa_%7Bn%2B2%7D%20%26%3D%20a_%7Bn%2B1%7D%2Ba_n%20%5C%5C%0Aa_%7Bn%2B2%7D%20x%5E%7Bn%2B2%7D%20%26%3D%20a_%7Bn%2B1%7D%20x%5E%7Bn%2B1%7D%20x%20%2B%20a_n%20x%5En%20x%5E2%20%5C%5C%0A%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20a_%7Bn%2B2%7D%20x%5E%7Bn%2B2%7D%20%26%3D%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20a_%7Bn%2B1%7D%20x%5E%7Bn%2B1%7D%20x%20%2B%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20a_n%20x%5En%20x%5E2%20%5C%5C%0A%5Csum_%7Bn%3D2%7D%5E%7B%5Cinfty%7D%20a_n%20x%5En%20%26%3D%20%5Csum_%7Bn%3D1%7D%5E%7B%5Cinfty%7D%20a_n%20x%5En%20x%20%2B%20%5Csum_%7Bn%3D0%7D%5E%7B%5Cinfty%7D%20a_n%20x%5En%20x%5E2%20%5C%5C%0Af%28x%29-a_1%20x-a_0%20%26%3D%20%28f%28x%29-a_0%29%20x%20%2B%20f%28x%29%20x%5E2%20%5C%5C%0Af%28x%29%20%26%3D%20%5Cfrac%7Bx%7D%7B1-x-x%5E2%7D%2C%201-x-x%5E2%20%5Cneq%200.%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+a_{n+2} &amp;= a_{n+1}+a_n \\
+a_{n+2} x^{n+2} &amp;= a_{n+1} x^{n+1} x + a_n x^n x^2 \\
+\sum_{n=0}^{\infty} a_{n+2} x^{n+2} &amp;= \sum_{n=0}^{\infty} a_{n+1} x^{n+1} x + \sum_{n=0}^{\infty} a_n x^n x^2 \\
+\sum_{n=2}^{\infty} a_n x^n &amp;= \sum_{n=1}^{\infty} a_n x^n x + \sum_{n=0}^{\infty} a_n x^n x^2 \\
+f(x)-a_1 x-a_0 &amp;= (f(x)-a_0) x + f(x) x^2 \\
+f(x) &amp;= \frac{x}{1-x-x^2}, 1-x-x^2 \neq 0.
+\end{align*}
+" title="\begin{align*}
+a_{n+2} &amp;= a_{n+1}+a_n \\
+a_{n+2} x^{n+2} &amp;= a_{n+1} x^{n+1} x + a_n x^n x^2 \\
+\sum_{n=0}^{\infty} a_{n+2} x^{n+2} &amp;= \sum_{n=0}^{\infty} a_{n+1} x^{n+1} x + \sum_{n=0}^{\infty} a_n x^n x^2 \\
+\sum_{n=2}^{\infty} a_n x^n &amp;= \sum_{n=1}^{\infty} a_n x^n x + \sum_{n=0}^{\infty} a_n x^n x^2 \\
+f(x)-a_1 x-a_0 &amp;= (f(x)-a_0) x + f(x) x^2 \\
+f(x) &amp;= \frac{x}{1-x-x^2}, 1-x-x^2 \neq 0.
+\end{align*}
+" class="math display" />
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20f" alt="f" title="f" class="math inline" /> is the generating function for the Fibonacci sequence. The equality between the two forms holds only when the sum converges (eg <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x%3D0" alt="x=0" title="x=0" class="math inline" />). The equality doesn't hold when the sum diverges (eg <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x%3D1" alt="x=1" title="x=1" class="math inline" />).</p>
+<p>To have an expression for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20a_n" alt="a_n" title="a_n" class="math inline" />, all that's left to do is to find an expression for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cfrac%7Bf%5E%7B%28n%29%7D%280%29%7D%7Bn%21%7D" alt="\frac{f^{(n)}(0)}{n!}" title="\frac{f^{(n)}(0)}{n!}" class="math inline" />. Deriving <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20f%28x%29%20%3D%20%5Cfrac%7Bx%7D%7B1-x-x%5E2%7D" alt="f(x) = \frac{x}{1-x-x^2}" title="f(x) = \frac{x}{1-x-x^2}" class="math inline" /> a few times shows a pattern leading to the solution. You'll probably need to decompose <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20f" alt="f" title="f" class="math inline" /> into partial fractions first to make deriving manageable.</p>
+<p>Another approach to deriving is to recognize <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20f" alt="f" title="f" class="math inline" /> as the sum of two functions of the form <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cfrac%7B1%7D%7B1-cx%7D" alt="\frac{1}{1-cx}" title="\frac{1}{1-cx}" class="math inline" />. That form is very close to <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cfrac%7B1%7D%7B1-x%7D" alt="\frac{1}{1-x}" title="\frac{1}{1-x}" class="math inline" />, for which the power series expansion is known. But that approach is of course specific to <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20f" alt="f" title="f" class="math inline" />.</p>
+</body>
+</html>

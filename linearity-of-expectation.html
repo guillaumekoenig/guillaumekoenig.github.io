@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Linearity of expectation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Linearity of expectation</h1>
+<p class="date">[2019-11-02 Sat]</p>
+</header>
+<p>You can apply transformations to random variables. <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X%27%3DcX" alt="X&#39;=cX" title="X&#39;=cX" class="math inline" /> is the new random variable with the values for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> scaled by scalar <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline" />, they have the same probability as before. <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Z%20%3D%20X%5C%2Cop%5C%2CY" alt="Z = X\,op\,Y" title="Z = X\,op\,Y" class="math inline" /> is the new random variable based on outcomes <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%28x_k%2Cy_%7Bk%27%7D%29" alt="(x_k,y_{k&#39;})" title="(x_k,y_{k&#39;})" class="math inline" /> with probability <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28X%3Dx_k%2CY%3Dy_%7Bk%27%7D%29" alt="P(X=x_k,Y=y_{k&#39;})" title="P(X=x_k,Y=y_{k&#39;})" class="math inline" /> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3DP%28X%3Dx_k%20%5Ccap%20Y%3Dy_%7Bk%27%7D%29" alt="=P(X=x_k \cap Y=y_{k&#39;})" title="=P(X=x_k \cap Y=y_{k&#39;})" class="math inline" />, and mapped to real number <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x_k%5C%2Cop%5C%2Cx_%7Bk%27%7D" alt="x_k\,op\,x_{k&#39;}" title="x_k\,op\,x_{k&#39;}" class="math inline" />. Now let's prove the linearity of expectation :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AE%28cX%29%0A%26%3D%5Csum_k%20c%5C%2Cx_k%5C%2CP%28X%27%3Dc%5C%2Cx_k%29%5C%5C%0A%26%3D%5Csum_k%20c%5C%2Cx_k%5C%2CP%28X%3Dx_k%29%5C%5C%0A%26%3Dc%5Csum_k%20x_k%5C%2CP%28X%3Dx_k%29%5C%5C%0A%26%3DcE%28x%29%5C%5C%0AE%28X%2BY%29%0A%26%3D%5Csum_%7B%28k%2Ck%27%29%7D%20%28x_k%2By_%7Bk%27%7D%29P%28X%3Dx_k%2CY%3Dy_%7Bk%27%7D%29%5C%5C%0A%26%3D%5Cleft%28%5Csum_k%20x_k%20%5Csum_%7Bk%27%7D%20P%28X%3Dx_k%2CY%3Dy_%7Bk%27%7D%29%5Cright%29%2B%5Cleft%28%5Csum_%7Bk%27%7D%20y_%7Bk%27%7D%20%5Csum_k%20P%28X%3Dx_k%2CY%3Dy_k%27%29%5Cright%29%5C%5C%0A%26%3D%5Cleft%28%5Csum_k%20x_k%20P%28X%3Dx_k%29%5Cright%29%2B%5Cleft%28%5Csum_%7Bk%27%7D%20y_%7Bk%27%7D%20P%28Y%3Dy_%7Bk%27%7D%29%5Cright%29%5C%5C%0A%26%3DE%28X%29%2BE%28Y%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+E(cX)
+&amp;=\sum_k c\,x_k\,P(X&#39;=c\,x_k)\\
+&amp;=\sum_k c\,x_k\,P(X=x_k)\\
+&amp;=c\sum_k x_k\,P(X=x_k)\\
+&amp;=cE(x)\\
+E(X+Y)
+&amp;=\sum_{(k,k&#39;)} (x_k+y_{k&#39;})P(X=x_k,Y=y_{k&#39;})\\
+&amp;=\left(\sum_k x_k \sum_{k&#39;} P(X=x_k,Y=y_{k&#39;})\right)+\left(\sum_{k&#39;} y_{k&#39;} \sum_k P(X=x_k,Y=y_k&#39;)\right)\\
+&amp;=\left(\sum_k x_k P(X=x_k)\right)+\left(\sum_{k&#39;} y_{k&#39;} P(Y=y_{k&#39;})\right)\\
+&amp;=E(X)+E(Y)
+\end{align*}
+" title="\begin{align*}
+E(cX)
+&amp;=\sum_k c\,x_k\,P(X&#39;=c\,x_k)\\
+&amp;=\sum_k c\,x_k\,P(X=x_k)\\
+&amp;=c\sum_k x_k\,P(X=x_k)\\
+&amp;=cE(x)\\
+E(X+Y)
+&amp;=\sum_{(k,k&#39;)} (x_k+y_{k&#39;})P(X=x_k,Y=y_{k&#39;})\\
+&amp;=\left(\sum_k x_k \sum_{k&#39;} P(X=x_k,Y=y_{k&#39;})\right)+\left(\sum_{k&#39;} y_{k&#39;} \sum_k P(X=x_k,Y=y_k&#39;)\right)\\
+&amp;=\left(\sum_k x_k P(X=x_k)\right)+\left(\sum_{k&#39;} y_{k&#39;} P(Y=y_{k&#39;})\right)\\
+&amp;=E(X)+E(Y)
+\end{align*}
+" class="math display" />
+<p>And with it, let's derive the following useful alternate formula for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Var" alt="Var" title="Var" class="math inline" /> :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AVar%28X%29%0A%26%3DE%5Cleft%28%28X-E%28X%29%29%5E2%5Cright%29%5C%5C%0A%26%3DE%5Cleft%28X%5E2-2%5C%2CX%5C%2CE%28X%29%2BE%28X%29%5E2%5Cright%29%5C%5C%0A%26%3DE%5Cleft%28X%5E2%5Cright%29-2%5C%2CE%28X%29%5C%2CE%28X%29%2BE%5Cleft%28E%28X%29%5E2%5Cright%29%5C%5C%0A%26%3DE%5Cleft%28X%5E2%5Cright%29-E%28X%29%5E2%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+Var(X)
+&amp;=E\left((X-E(X))^2\right)\\
+&amp;=E\left(X^2-2\,X\,E(X)+E(X)^2\right)\\
+&amp;=E\left(X^2\right)-2\,E(X)\,E(X)+E\left(E(X)^2\right)\\
+&amp;=E\left(X^2\right)-E(X)^2
+\end{align*}
+" title="\begin{align*}
+Var(X)
+&amp;=E\left((X-E(X))^2\right)\\
+&amp;=E\left(X^2-2\,X\,E(X)+E(X)^2\right)\\
+&amp;=E\left(X^2\right)-2\,E(X)\,E(X)+E\left(E(X)^2\right)\\
+&amp;=E\left(X^2\right)-E(X)^2
+\end{align*}
+" class="math display" />
+<p>This formula is better for computing <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Var" alt="Var" title="Var" class="math inline" /> than the definition. With the definition, you need to keep all values to subtract the updated mean from them. With this new formula, you need only keep three scalars : the number of items seen so far, the sum of squared values, the sum of values. It's the formula used in the <a href="https://github.com/freebsd/freebsd/blob/master/sbin/ping/ping.c#L1440-L1445">ping command</a> to compute the standard deviation of round-trip times.</p>
+</body>
+</html>

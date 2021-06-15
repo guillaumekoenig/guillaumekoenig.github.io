@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Circumference of an ellipse</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Circumference of an ellipse</h1>
+<p class="date">[2019-04-17 Wed]</p>
+</header>
+<p>The length of an arc <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20S" alt="S" title="S" class="math inline" /> is derived in polar coordinates in <em>Calculus made easy</em> from the infinitely small right angle triangle <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20ds%5E2%20%3D%20%28rd%5Ctheta%29%5E2%20%2B%20dr%5E2" alt="ds^2 = (rd\theta)^2 + dr^2" title="ds^2 = (rd\theta)^2 + dr^2" class="math inline" /> :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AS%20%26%3D%20%5Cint%20ds%20%5C%5C%0A%20%20%26%3D%20%5Cint%20%28%28rd%5Ctheta%29%5E2%20%2B%20dr%5E2%29%5E%7B%5Cfrac%7B1%7D%7B2%7D%7D%20%5C%5C%0A%20%20%26%3D%20%5Cint%20%5Cleft%28r%5E2%20%2B%20%5Cleft%28%5Cfrac%7Bdr%7D%7Bd%5Ctheta%7D%5Cright%29%5E2%5Cright%29%5E%5Cfrac%7B1%7D%7B2%7D%20d%5Ctheta.%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+S &amp;= \int ds \\
+  &amp;= \int ((rd\theta)^2 + dr^2)^{\frac{1}{2}} \\
+  &amp;= \int \left(r^2 + \left(\frac{dr}{d\theta}\right)^2\right)^\frac{1}{2} d\theta.
+\end{align*}
+" title="\begin{align*}
+S &amp;= \int ds \\
+  &amp;= \int ((rd\theta)^2 + dr^2)^{\frac{1}{2}} \\
+  &amp;= \int \left(r^2 + \left(\frac{dr}{d\theta}\right)^2\right)^\frac{1}{2} d\theta.
+\end{align*}
+" class="math display" />
+<p>For an ellipse,</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0Ar%5E2%20%26%3D%20a%5E2%5Ccos%5E2%5Ctheta%2Bb%5E2%5Csin%5E2%5Ctheta%20%5C%5C%0A2%5C%2Cr%5C%2Cdr%20%26%3D%20-2%5C%2Ca%5E2%5Ccos%5Ctheta%5Csin%5Ctheta%5C%2Cd%5Ctheta%2B2%5C%2Cb%5E2%5Csin%5Ctheta%5Ccos%5Ctheta%5C%2Cd%5Ctheta%20%5C%5C%0A%5Cfrac%7Bdr%7D%7Bd%5Ctheta%7D%20%26%3D%20%28b%5E2-a%5E2%29%5Cfrac%7B%5Ccos%5Ctheta%5Csin%5Ctheta%7D%7Br%7D%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+r^2 &amp;= a^2\cos^2\theta+b^2\sin^2\theta \\
+2\,r\,dr &amp;= -2\,a^2\cos\theta\sin\theta\,d\theta+2\,b^2\sin\theta\cos\theta\,d\theta \\
+\frac{dr}{d\theta} &amp;= (b^2-a^2)\frac{\cos\theta\sin\theta}{r}
+\end{align*}
+" title="\begin{align*}
+r^2 &amp;= a^2\cos^2\theta+b^2\sin^2\theta \\
+2\,r\,dr &amp;= -2\,a^2\cos\theta\sin\theta\,d\theta+2\,b^2\sin\theta\cos\theta\,d\theta \\
+\frac{dr}{d\theta} &amp;= (b^2-a^2)\frac{\cos\theta\sin\theta}{r}
+\end{align*}
+" class="math display" />
+<p>For circles, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20r" alt="r" title="r" class="math inline" /> is constant. So <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cfrac%7Bdr%7D%7Bd%5Ctheta%7D%20%3D%200" alt="\frac{dr}{d\theta} = 0" title="\frac{dr}{d\theta} = 0" class="math inline" />. Hence <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20S%20%3D%20%5Cint_0%5E%7B2%5Cpi%7D%20r%20d%5Ctheta%20%3D%202%5Cpi%20r" alt="S = \int_0^{2\pi} r d\theta = 2\pi r" title="S = \int_0^{2\pi} r d\theta = 2\pi r" class="math inline" />, the formula for the circumference of a circle.</p>
+<p>Apparently though, there is no such thing as an expression for the general case using the "usual functions". I am not even sure what that means, but I am guessing this : the circumference of an ellipse cannot be expressed as a finite combination of arithmetic operators and trigonometric functions.</p>
+</body>
+</html>

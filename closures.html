@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Closures</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Closures</h1>
+<p class="date">[2020-12-08 Tue]</p>
+</header>
+<p>Section 4.5 of <em>How to prove it</em>.</p>
+<h2 id="definitions">Definitions</h2>
+<ul>
+<li>What's the closure of a relation R ⊆ A × A, on some <em>property</em> ? the smallest set ⊆ A × A among those that include R and satisfies <em>property</em> (if there is such a smallest set)</li>
+<li>A relation R on A is irreflexive ? ∀x ∈ A ((x,x) ∉ R)</li>
+<li>A relation R is a strict partial order ? R is irreflexive and transitive (the two imply antisymmetry)</li>
+<li>A relation R is a strict total order ? R is a strict partial order and ∀(x,y) ∈ A × A (xRy ∨ yRx ∨ x = y)</li>
+</ul>
+<h2 id="practice">Practice</h2>
+<h3 id="suppose-r-is-a-relation-a.-r-is-called-asymmetric-if-xy-a-a-xy-r-yx-r.-a-show-that-if-r-is-asymmetric-then-r-is-antisymmetric.-b-show-that-if-r-is-a-strict-partial-order-then-r-is-asymmetric.-note-that-it-follows-by-part-a-that-it-is-also-antisymmetric.">Suppose R is a relation A. R is called asymmetric if ∀(x,y) ∈ A × A ((x,y) ∈ R → (y,x) ∉ R). (a) Show that if R is asymmetric then R is antisymmetric. (b) Show that if R is a strict partial order, then R is asymmetric. Note that it follows by part (a) that it is also antisymmetric.</h3>
+<p>(a) Prove R is antisymmetric, ie prove ∀(x,y) ∈ A × A (xRy ∧ yRx → x = y). Let (x,y) ∈ A × A be arbitrary. Prove xRy ∧ yRx → x = y. Because R is asymmetric, (y,x) ∉ R. So xRy ∧ yRx is always false, and xRy ∧ yRx → x = y is always true.</p>
+<p>(b) Prove R is asymmetric. Let (x,y) ∈ A × A and xRy. Prove (y,x) ∉ R. Since R is a strict partial order, R is irreflexive. Suppose yRx. Then xRy ∧ yRx. But since R is transitive, it implies xRx, which contradicts R being irreflexive. So (y,x) ∉ R. By part (a), irreflexive and transitive implies antisymmetric.</p>
+<h3 id="suppose-r-is-a-relation-on-a.-let-s-r-ia.-a-prove-that-s-is-the-largest-element-of-the-set-f-t-a-a-t-r-and-t-is-irreflexive.-b-prove-that-if-r-is-a-partial-order-on-a-then-s-is-a-strict-partial-order-on-a.">Suppose R is a relation on A. Let S = R \ i<sub>A</sub>. (a) Prove that S is the largest element of the set F = {T ⊆ A × A | T ⊆ R and T is irreflexive}. (b) Prove that if R is a partial order on A, then S is a strict partial order on A.</h3>
+<p>(a) Prove S ∈ F ∀X ∈ F (X ⊆ S). Ie, the order is taken to be the subset relation. Let X ∈ F be arbitrary. Then X ⊆ R and X is irreflexive. Since X is irreflexive, it doesn't contain the identity, hence X ⊆ S.</p>
+<p>(b) Prove S is irreflexive and S is transitive. Irreflexive follows from S not containing the identity on A. Let (x,y,z) ∈ A<sup>3</sup> be arbitrary and suppose xSy and ySz. Then xRy and yRz, and since R is a partial order, it is transitive, ie xRz. Suppose x = z. Then xRy ∧ yRx. And since R is antisymmetric, x = y. This contradicts xSy, so our assumption x = z is false. Since x ≠ z, xSz.</p>
+<h3 id="suppose-r-is-a-relation-on-a.-a-prove-that-r-is-reflexive-iff-r-is-its-own-reflexive-closure.-b-do-similar-theorems-hold-for-symmetry-and-transitivity-justify-your-answers-with-proofs-or-counterexamples.">Suppose R is a relation on A. (a) Prove that R is reflexive iff R is its own reflexive closure. (b) Do similar theorems hold for symmetry and transitivity? Justify your answers with proofs or counterexamples.</h3>
+<p>(a) Reflexive closure of R : set S such that R ⊆ S and ∀x ∈ A (xSx) and ∀T ⊆ A × A (R ⊆ T ∧ T reflexive → S ⊆ T).</p>
+<p>← S = R, so R is reflexive.</p>
+<p>→ Let's prove the contrapositive : S ≠ R → R is not reflexive. Suppose S ≠ R, prove R is not reflexive. Since S ≠ R, but R ⊆ S, ∃s ∈ S (s ∉ R). Since S = R ∪ i<sub>A</sub>, it follows s ∈ i<sub>A</sub>. Since s ∉ R, it isn't true that ∀x ∈ A (xRx), ie R is not reflexive.</p>
+<p>(b) Symmetry. (→) Prove S ≠ R → R not symmetric. Suppose S ≠ R. ∃s ∈ S (s ∉ R). Since S = R ∪ R<sup>-1</sup>, s ∈ R<sup>-1</sup>. So R is not symmetric.</p>
+<p>Transitivity. (→) Prove S = R, ie prove S ⊆ R and R ⊆ S. R ⊆ S follows by definition of S. But S is also the smallest set in {T ⊆ A × A | R ⊆ T and T transitive}, of which R is an element. So S ⊆ R. In fact, this proof strategy works for symmetry and reflexivity too.</p>
+<h3 id="suppose-r-is-a-relation-on-a-and-let-s-be-the-transitive-closure-of-r.-prove-that-doms-domr-and-rans-ranr.">Suppose R is a relation on A, and let S be the transitive closure of R. Prove that Dom(S) = Dom(R) and Ran(S) = Ran(R).</h3>
+<p>Prove Dom(S) = Dom(R).</p>
+<p>Dom(R) ⊆ Dom(S) : Let a ∈ Dom(R) be arbitrary. Then ∃b ∈ A (aRb). Since R ⊆ S, aSb, so a ∈ Dom(S).</p>
+<p>Dom(S) ⊆ Dom(R) : Let T = {(a,b) ∈ S | a ∈ Dom(R) ∧ b ∈ Ran(R)}. (Proof of T = S.) Let a ∈ Dom(S) be arbitrary, then, since S = T, a ∈ Dom(T), ie a ∈ Dom(R).</p>
+<p>Proof of T = S. T ⊆ S : Let (a,b) ∈ T be arbitrary, then (a,b) ∈ S. S ⊆ T : (Proof of R ⊆ T and T is transitive.) Then, since S is the smallest element of those sets, S ⊆ T.</p>
+<p>Proof of R ⊆ T. Let (a,b) ∈ R be arbitrary. Then, since R ⊆ S, (a,b) ∈ S. Then, since (a,b) ∈ S and (a,b) ∈ Dom(R) × Ran(R), (a,b) ∈ T.</p>
+<p>Proof of T transitive : Let (a,b) ∈ T and (b,c) ∈ T be arbitrary. Since (a,b) ∈ S and (b,c) ∈ S, and S being transitive, (a,c) ∈ S. But you also have a ∈ Dom(R) and c ∈ Ran(R) from (a,b) and (b,c) being element of T. So (a,c) ∈ T.</p>
+<h3 id="suppose-r1-and-r2-are-relations-on-a-and-let-r-r1-r2.-a-let-s1-s2-and-s-be-the-reflexive-closures-of-r1-r2-and-r-respectively.-prove-that-s1-s2-s.-b-same-with-s1-s2-and-s-being-symmetric-closures.-c-consider-now-the-reflexive-closures-s1-s2-and-s.-prove-that-s1-s2-s-but-not-.">Suppose R<sub>1</sub> and R<sub>2</sub> are relations on A, and let R = R<sub>1</sub> ∪ R<sub>2</sub>. (a) Let S<sub>1</sub>, S<sub>2</sub>, and S be the reflexive closures of R<sub>1</sub>, R<sub>2</sub>, and R respectively. Prove that S<sub>1</sub> ∪ S<sub>2</sub> = S. (b) Same with S<sub>1</sub>, S<sub>2</sub>, and S being symmetric closures. (c) Consider now the reflexive closures S<sub>1</sub>, S<sub>2</sub>, and S. Prove that S<sub>1</sub> ∪ S2 ⊆ S, but not ⊇.</h3>
+<p>(a) → Let (x,y) ∈ S<sub>1</sub> ∪ S<sub>2</sub> be arbitrary. Prove (x,y) ∈ S, ie (x,y) ∈ R ∪ i<sub>A</sub>. Case 1 : (x,y) ∈ S<sub>1</sub>. Then (x,y) ∈ R<sub>1</sub> ∪ i<sub>A</sub> ⊆ R ∪ i<sub>A</sub>. Case 2 : similar argument when (x,y) ∈ S<sub>2</sub>.</p>
+<p>← Let (x,y) ∈ S be arbitrary. Prove (x,y) ∈ S<sub>1</sub> ∪ S<sub>2</sub>. Since xSy, (x,y) ∈ R ∪ i<sub>A</sub> = S<sub>1</sub> ∪ S<sub>2</sub>.</p>
+<p>(b) Same strategy with S = R ∪ R<sup>-1</sup>.</p>
+<p>(c) → Proof of something slightly easier : given R<sub>1</sub> ⊆ R, prove S<sub>1</sub> ⊆ S. Let T = S<sub>1</sub> ∩ S. Prove T = S<sub>1</sub>, ie that T is the transitive closure of R<sub>1</sub> (the book already proves that the transitive closure exists and is unique).</p>
+<p>Proof of T transitive. Let (x,y) ∈ T and (y,z) ∈ T be arbitrary. Then (x,y) ∈ S<sub>1</sub> and (y,z) ∈ S<sub>1</sub>, so since S<sub>1</sub> is transitive, (x,z) ∈ S<sub>1</sub>. But also (x,y) ∈ S and (y,z) ∈ S, and since S is transitive, (x,z) ∈ S. Since (x,z) ∈ S<sub>1</sub> and (x,z) ∈ S, (x,z) ∈ T.</p>
+<p>Proof of R<sub>1</sub> ⊆ T : R<sub>1</sub> ⊆ S<sub>1</sub>, and R<sub>1</sub> ⊆ R ⊆ S, so R<sub>1</sub> ⊆ S<sub>1</sub> ∩ S = T.</p>
+<p>Proof of T smallest element of {X ⊆ A × A | R<sub>1</sub> ⊆ X and X transitive}, ie ∀X ⊆ A × A (R<sub>1</sub> ⊆ X and X transitive → T ⊆ X). Let X ⊆ A × A such that R<sub>1</sub> ⊆ X and X is transitive. By definition of T, T ⊆ S<sub>1</sub>. Since S<sub>1</sub> is the transitive closure of R<sub>1</sub>, S<sub>1</sub> ⊆ X. Hence T ⊆ S<sub>1</sub> ⊆ X.</p>
+<p>Counter example of ←. In a preceding exercise was established : R1={(1,2)} and R2={(2,3)} are individually transitive, but their union isn't. Since they're transitive, they're equal to their transitive closure. Yet S<sub>1</sub> ∪ S<sub>2</sub> = {(1,2),(2,3)} ⊉ S = {(1,2),(2,3),(1,3)}.</p>
+<h3 id="suppose-r-is-a-relation-on-a.-the-reflexive-symmetric-closure-of-r-is-the-smallest-set-s-a-a-such-that-r-s-s-is-reflexive-and-s-is-symmetric-if-there-is-such-a-smallest-set.-prove-that-every-relation-has-a-reflexive-symmetric-closure.">Suppose R is a relation on A. The <em>reflexive symmetric</em> closure of R is the smallest set S ⊆ A × A such that R ⊆ S, S is reflexive, and S is symmetric, if there is such a smallest set. Prove that every relation has a reflexive symmetric closure.</h3>
+<p>Let S = R ∪ R<sup>-1</sup> ∪ i<sub>A</sub>. Let (x,y) ∈ S.</p>
+<p>R ⊆ S.</p>
+<p>If (x,y) ∈ R, then (y,x) ∈ R<sup>-1</sup> ⊆ S and vice versa. If (x,y) ∈ i<sub>A</sub>, then (x,y) = (x,x) = (y,x) ∈ i<sub>A</sub> ⊆ S. Hence S is symmetric.</p>
+<p>i<sub>A</sub> ⊆ S, hence S is reflexive.</p>
+<p>Is it the smallest set among the sets with these properties? Let X ⊆ A × A such that R ⊆ X and X is reflexive and symmetric. Let s ∈ S. If s ∈ R, then s ∈ X since R ⊆ X. If s ∈ R<sup>-1</sup>, then s ∈ X since X is symmetric and R ⊆ X. Finally, if s ∈ i<sub>A</sub>, then s ∈ X since X is reflexive. Hence S ⊆ X.</p>
+<h3 id="suppose-r-is-a-relation-on-a.-the-symmetric-transitive-closure-of-r-is-the-smallest-set-s-a-a-such-that-r-s-s-is-symmetric-and-s-is-transitive-if-there-is-such-a-smallest-set.-let-q-be-the-symmetric-closure-of-r-and-let-s-be-the-transitive-closure-of-q.-also-let-q-be-the-transitive-closure-of-r-and-let-s-be-the-symmetric-closure-of-q.-a-prove-that-s-is-the-symmetric-transitive-closure-of-r.-b-prove-that-s-s.-c-must-it-be-the-case-that-s-s">Suppose R is a relation on A. The <em>symmetric transitive closure</em> of R is the smallest set S ⊆ A × A such that R ⊆ S, S is symmetric, and S is transitive, if there is such a smallest set. Let Q be the symmetric closure of R, and let S be the transitive closure of Q. Also, let Q' be the transitive closure of R, and let S' be the symmetric closure of Q'. (a) Prove that S is the symmetric transitive closure of R. (b) Prove that S' ⊆ S. (c) Must it be the case that S' = S?</h3>
+<p>(a) S is the transitive closure of Q. Q is symmetric, is S also? Q ⊆ S, so Q<sup>-1</sup> ⊆ S<sup>-1</sup>. But since Q is symmetric, Q = Q<sup>-1</sup> ⊆ S<sup>-1</sup>. Furthermore, since S is transitive, so is S<sup>-1</sup>. So S<sup>-1</sup> includes Q and is transitive, so S<sup>-1</sup> ⊆ S. Taking the inverse on both side, S ⊆ S<sup>-1</sup>. So S = S<sup>-1</sup>, so S is symmetric.</p>
+<p>R ⊆ Q ⊆ S, and S is transitive and symmetric. All that remains is proving that S is the smallest such set. Let X ⊆ A × A such that R ⊆ X and X is transitive and symmetric. Let s ∈ S. Since Q is the symmetric closure of R and R ⊆ X and X is symmetric, Q ⊆ X. Since S is the transitive closure of Q and Q ⊆ X and X is transitive, S ⊆ X.</p>
+<p>(b) R ⊆ S, S is symmetric and S is transitive. R ⊆ Q' and Q' is transitive and it's the smallest such set. So, since R ⊆ S and S is transitive, Q' ⊆ S. But you also have Q' ⊆ S' and S' is symmetric and it's the smallest such set. So, since Q' ⊆ S and S is symmetric, S' ⊆ S.</p>
+<p>(c) If we suspect it's not the case and try to find a counter-example, it must be that S' ⊉ S. In other words, S must have an element that S' doesn't have.</p>
+<p>In particular, S' is symmetric but it might not be transitive.</p>
+<ul>
+<li>R = {(1,2)}</li>
+<li>Q' = {(1,2)}</li>
+<li>S' = {(1,2),(2,1)}</li>
+<li>Q = {(1,2),(2,1)}</li>
+<li>S = {(1,2),(2,1),(1,1),(2,2)}</li>
+</ul>
+</body>
+</html>

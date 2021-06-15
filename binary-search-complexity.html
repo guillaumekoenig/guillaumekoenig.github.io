@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Binary search complexity</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Binary search complexity</h1>
+<p class="date">[2019-09-28 Sat]</p>
+</header>
+<p>Binary search is a method for searching an element in an ordered collection of elements.</p>
+<p>It works by comparing the element searched for to the one in the middle of the collection. If the element searched for is bigger, reiterate on the subcollection of elements bigger than the middle. If it's smaller, on the subcollection of elements smaller than the middle.</p>
+<p>Let's assume the collection in input has <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline" /> elements, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline" /> power of 2 for simplicity.</p>
+<p>During binary search, each additional step reduces the collection size by 2. In equation form : <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20s_n%3Ds_%7Bn%2F2%7D%2B1" alt="s_n=s_{n/2}+1" title="s_n=s_{n/2}+1" class="math inline" />.</p>
+<p>It is not quite a regular arithmetic recurrence, but can be made into one by transforming indexes into <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n%3D2%5Em" alt="n=2^m" title="n=2^m" class="math inline" /> (<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline" /> was assumed to be a power of 2).</p>
+<p>The equation is now an arithmetic recurrence : <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20s_%7B2%5Em%7D%3Ds_%7B2%5E%7Bm-1%7D%7D%2B1" alt="s_{2^m}=s_{2^{m-1}}+1" title="s_{2^m}=s_{2^{m-1}}+1" class="math inline" />. Solving it assuming initial value <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20s_1%3D0" alt="s_1=0" title="s_1=0" class="math inline" /> yields <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20s_n%3Dm%3Dlog_2%28n%29" alt="s_n=m=log_2(n)" title="s_n=m=log_2(n)" class="math inline" />.</p>
+</body>
+</html>

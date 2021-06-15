@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Probabilité de couvrir le Goncourt</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Probabilité de couvrir le Goncourt</h1>
+<p class="date">[2020-06-14 Sun]</p>
+</header>
+<p>Le Goncourt se déroule en 3 sélections précédant l'annonce du vainqueur. À la première sélection, le jury retient 15 livres. Aux suivantes, il en retient: 9 ou 8, puis 4 (les finalistes), et enfin 1 livre (le vainqueur).</p>
+<p>Quelle est la probabilité d'avoir lu les livres sélectionnés ? On choisit un modèle ayant les paramètres suivants : pour chaque sélection il y a <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline" /> livres avant, et <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20m" alt="m" title="m" class="math inline" /> après (le modèle ne s'applique pas à la première selection). On a lu <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20r" alt="r" title="r" class="math inline" /> livres sur les <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline" />. Par exemple à la deuxième sélection, il y avait <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n%3D15" alt="n=15" title="n=15" class="math inline" /> livres avant, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20m%3D9" alt="m=9" title="m=9" class="math inline" /> livres après, et on en a lu disons <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20r%3D5" alt="r=5" title="r=5" class="math inline" />.</p>
+<p>On fait la supposition qu'il n'y a pas d'information supplémentaire, et que la sélection du Goncourt aussi bien que les livres qu'on a choisi de lire sont complètement arbitraires : un livre n'est pas favori par rapport à un autre.</p>
+<p>Soit <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline" /> l'ensemble de taille <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline" /> des livres avant sélection. Soit <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20S" alt="S" title="S" class="math inline" /> l'ensemble des sélections possibles : les sous-ensembles de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline" /> à taille <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20m" alt="m" title="m" class="math inline" />. Soit <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20R" alt="R" title="R" class="math inline" /> l'ensemble des choix possibles de lecture : les sous-ensembles de <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20L" alt="L" title="L" class="math inline" /> à taille <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20r" alt="r" title="r" class="math inline" />. L'univers <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5COmega" alt="\Omega" title="\Omega" class="math inline" /> de cette expérience probabiliste est <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20S%20%5Ctimes%20R" alt="S \times R" title="S \times R" class="math inline" />. En reprenant l'exemple, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7CS%7C%3D%7B15%20%5Cchoose%209%7D" alt="|S|={15 \choose 9}" title="|S|={15 \choose 9}" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7CR%7C%3D%7B15%20%5Cchoose%205%7D" alt="|R|={15 \choose 5}" title="|R|={15 \choose 5}" class="math inline" />, et <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7C%5COmega%7C" alt="|\Omega|" title="|\Omega|" class="math inline" /> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3D%7CS%7C%20%5Ccdot%20%7CR%7C" alt="=|S| \cdot |R|" title="=|S| \cdot |R|" class="math inline" /> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3D%7B15%20%5Cchoose%209%7D%20%5Ccdot%20%7B15%20%5Cchoose%205%7D" alt="={15 \choose 9} \cdot {15 \choose 5}" title="={15 \choose 9} \cdot {15 \choose 5}" class="math inline" />. Chaque paire de l'univers est équiprobable, de probabilité <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7C%5COmega%7C%5E%7B-1%7D" alt="|\Omega|^{-1}" title="|\Omega|^{-1}" class="math inline" />.</p>
+<p>On considère <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X%20%3A%20%5COmega%20%5Crightarrow%20%5B0..5%5D" alt="X : \Omega \rightarrow [0..5]" title="X : \Omega \rightarrow [0..5]" class="math inline" /> la variable aléatoire indiquant le nombre de livres qui ont été à la fois lus et sélectionnés. <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28X%3D5%29" alt="P(X=5)" title="P(X=5)" class="math inline" /> est donc la probabilité que les 5 livres lus parmi les 15 ont également été sélectionnés. Pour chacune des <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7B15%20%5Cchoose%209%7D" alt="{15 \choose 9}" title="{15 \choose 9}" class="math inline" /> sélections de 9 livres, il y a <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%209%20%5Cchoose%205" alt="9 \choose 5" title="9 \choose 5" class="math inline" /> manière d'avoir lu 5 livres qui ont été sélectionnés. Chaque paire étant équiprobable :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AP%28X%3D5%29%20%3D%20%5Cfrac%7B%7B15%20%5Cchoose%209%7D%7B9%20%5Cchoose%205%7D%7D%7B%7B15%20%5Cchoose%209%7D%7B15%20%5Cchoose%205%7D%7D%0A%20%20%20%20%20%20%20%3D%20%5Cfrac%7B%7B9%20%5Cchoose%205%7D%7D%7B%7B15%20%5Cchoose%205%7D%7D%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+P(X=5) = \frac{{15 \choose 9}{9 \choose 5}}{{15 \choose 9}{15 \choose 5}}
+       = \frac{{9 \choose 5}}{{15 \choose 5}}
+\end{align*}
+" title="\begin{align*}
+P(X=5) = \frac{{15 \choose 9}{9 \choose 5}}{{15 \choose 9}{15 \choose 5}}
+       = \frac{{9 \choose 5}}{{15 \choose 5}}
+\end{align*}
+" class="math display" />
+<p>Qu'en est-il de seulement 4 livres sélectionnés sur les 5 lus ? Pour chacune des <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7B15%20%5Cchoose%209%7D" alt="{15 \choose 9}" title="{15 \choose 9}" class="math inline" /> sélections de 9 livres, il y a <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7B9%20%5Cchoose%204%7D" alt="{9 \choose 4}" title="{9 \choose 4}" class="math inline" /> manières d'avoir lu 4 livres qui ont été sélectionnés. Mais il y a aussi <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7B15-9%20%5Cchoose%201%7D" alt="{15-9 \choose 1}" title="{15-9 \choose 1}" class="math inline" /> manières d'avoir lu 1 livre qui n'a pas été sélectionné.</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AP%28X%3D4%29%20%3D%20%5Cfrac%7B%7B15%20%5Cchoose%209%7D%7B9%20%5Cchoose%204%7D%7B15-9%20%5Cchoose%201%7D%7D%7B%7B15%20%5Cchoose%209%7D%7B15%20%5Cchoose%205%7D%7D%0A%20%20%20%20%20%20%20%3D%20%5Cfrac%7B%7B9%20%5Cchoose%204%7D%7B15-9%20%5Cchoose%201%7D%7D%7B%7B15%20%5Cchoose%205%7D%7D%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+P(X=4) = \frac{{15 \choose 9}{9 \choose 4}{15-9 \choose 1}}{{15 \choose 9}{15 \choose 5}}
+       = \frac{{9 \choose 4}{15-9 \choose 1}}{{15 \choose 5}}
+\end{align*}
+" title="\begin{align*}
+P(X=4) = \frac{{15 \choose 9}{9 \choose 4}{15-9 \choose 1}}{{15 \choose 9}{15 \choose 5}}
+       = \frac{{9 \choose 4}{15-9 \choose 1}}{{15 \choose 5}}
+\end{align*}
+" class="math display" />
+<p>Dans le premier cas qu'on a considéré avec 5 livres lus et sélectionnés, il y avait <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%7B15-9%20%5Cchoose%200%7D" alt="{15-9 \choose 0}" title="{15-9 \choose 0}" class="math inline" /> manières d'avoir lu 0 livre qui n'a pas été sélectionné, soit 1. On a donc, en généralisant (<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20k" alt="k" title="k" class="math inline" /> le nombre de livres à la fois lus et sélectionnés) :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AP%28X%3Dk%29%20%3D%20%5Cfrac%7B%7Bm%20%5Cchoose%20k%7D%7Bn-m%20%5Cchoose%20r-k%7D%7D%7B%7Bn%20%5Cchoose%20r%7D%7D%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+P(X=k) = \frac{{m \choose k}{n-m \choose r-k}}{{n \choose r}}
+\end{align*}
+" title="\begin{align*}
+P(X=k) = \frac{{m \choose k}{n-m \choose r-k}}{{n \choose r}}
+\end{align*}
+" class="math display" />
+<p>On peut vérifier qu'en sommant les probabilités pour <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20k" alt="k" title="k" class="math inline" /> de 0 au nombre lu, on a bien 1 (axiome de probabilité) :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0A%5Csum_%7Bk%3D0%7D%5E%7Br%7D%20P%28X%3Dk%29%20%26%3D%20%5Cfrac%7B1%7D%7B%7Bn%20%5Cchoose%20r%7D%7D%20%5Csum_%7Bk%3D0%7D%5E%7Br%7D%20%7Bm%20%5Cchoose%20k%7D%7Bn-m%20%5Cchoose%20r-k%7D%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%26%3D%20%5Cfrac%7B1%7D%7B%7Bn%20%5Cchoose%20r%7D%7D%20%7Bm%2Bn-m%20%5Cchoose%20r%7D%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%3D%201%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+\sum_{k=0}^{r} P(X=k) &amp;= \frac{1}{{n \choose r}} \sum_{k=0}^{r} {m \choose k}{n-m \choose r-k} \\
+                 &amp;= \frac{1}{{n \choose r}} {m+n-m \choose r} \\
+             &amp;= 1
+\end{align*}
+" title="\begin{align*}
+\sum_{k=0}^{r} P(X=k) &amp;= \frac{1}{{n \choose r}} \sum_{k=0}^{r} {m \choose k}{n-m \choose r-k} \\
+                 &amp;= \frac{1}{{n \choose r}} {m+n-m \choose r} \\
+             &amp;= 1
+\end{align*}
+" class="math display" />
+<p>On passe à la deuxième ligne en reconnaissant l'identité de Vandermonde. Si <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20r%3Em" alt="r&gt;m" title="r&gt;m" class="math inline" />, c'est-à-dire qu'on a lu plus de livres que de sélectionnés, on peut simplement échanger <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20m" alt="m" title="m" class="math inline" /> et <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20r" alt="r" title="r" class="math inline" /> dans la formule. Le raisonnement est le même.</p>
+<p>En ayant lu 5 livres, la probabilité d'avoir lu au moins 3 livres qui ont été sélectionnés est <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28X%20%5Cgeq%203%29" alt="P(X \geq 3)" title="P(X \geq 3)" class="math inline" /> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3D%20P%28X%3D3%29%2BP%28X%3D4%29%2BP%28X%3D5%29" alt="= P(X=3)+P(X=4)+P(X=5)" title="= P(X=3)+P(X=4)+P(X=5)" class="math inline" />, environ 71%. Si ensuite on en lit 3 additionnels, la probabilité d'avoir lu les 4 finalistes est <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28X%27%3D4%29" alt="P(X&#39;=4)" title="P(X&#39;=4)" class="math inline" /> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%3D%20%7B6%20%5Cchoose%204%7D%7B9-6%20%5Cchoose%204-4%7D%7B9%20%5Cchoose%204%7D%5E%7B-1%7D" alt="= {6 \choose 4}{9-6 \choose 4-4}{9 \choose 4}^{-1}" title="= {6 \choose 4}{9-6 \choose 4-4}{9 \choose 4}^{-1}" class="math inline" />, environ 12%. La probabilité d'avoir lu au moins 3 finalistes monte à 60%.</p>
+<p>Ce modèle fait une supposition simplificatrice : chaque livre a autant de chance qu'un autre d'être sélectionné. De même on a supposé qu'on a choisit les livres qu'on a lus sans préférence. Dans les faits, un livre chez Gallimard a beaucoup plus de chance d'être sélectionné qu'un livre dans une plus petite maison d'édition.</p>
+</body>
+</html>

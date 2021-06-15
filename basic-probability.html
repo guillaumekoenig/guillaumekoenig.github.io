@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Basic probability</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Basic probability</h1>
+<p class="date">[2019-10-26 Sat]</p>
+</header>
+<p>I enjoyed <a href="https://brilliant.org">brilliant.org</a>'s probability course. What it forced me to think through :</p>
+<ul>
+<li>An event is a subset of outcomes of an experiment</li>
+<li>A random variable <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> maps outcomes to real numbers <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5C%7Bx_1%2C..%2Cx_k%5C%7D" alt="\{x_1,..,x_k\}" title="\{x_1,..,x_k\}" class="math inline" /></li>
+<li>Random variables don't have probability, events do ; <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28X%29" alt="P(X)" title="P(X)" class="math inline" /> is meaningless, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28X%3Dx_k%29" alt="P(X=x_k)" title="P(X=x_k)" class="math inline" /> is the probability of the event "the set of outcomes that are mapped to <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x_k" alt="x_k" title="x_k" class="math inline" />"</li>
+<li><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline" /> usually represent random variables, whereas <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline" /> represent events</li>
+<li><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28A%2CB%29%3DP%28A%20%5Ccap%20B%29" alt="P(A,B)=P(A \cap B)" title="P(A,B)=P(A \cap B)" class="math inline" /> is the joint probability of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline" /></li>
+<li><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28A%7CB%29P%28B%29%3DP%28A%20%5Ccap%20B%29" alt="P(A|B)P(B)=P(A \cap B)" title="P(A|B)P(B)=P(A \cap B)" class="math inline" /> defines the conditional probability of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> given <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline" /> (including when <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28B%29%3D0" alt="P(B)=0" title="P(B)=0" class="math inline" />)</li>
+<li>"<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline" /> are independent" is equivalent to <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28A%7CB%29%3DP%28A%29" alt="P(A|B)=P(A)" title="P(A|B)=P(A)" class="math inline" /></li>
+<li>"<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline" /> are disjoint" or "<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline" /> are mutually exclusive" has the meaning of set theory : <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20A%20%5Ccap%20B%20%3D%20%5Cemptyset" alt="A \cap B = \emptyset" title="A \cap B = \emptyset" class="math inline" /></li>
+<li><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E%28X%29%3D%5Csum_k%20x_kP%28X%3Dx_k%29" alt="E(X)=\sum_k x_kP(X=x_k)" title="E(X)=\sum_k x_kP(X=x_k)" class="math inline" /> is the <em>expected value</em> of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> (also <em>mean</em>, "espérance" in French)</li>
+<li><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Var%28X%29%3DE%5Cleft%28%28X-E%28X%29%29%5E2%5Cright%29" alt="Var(X)=E\left((X-E(X))^2\right)" title="Var(X)=E\left((X-E(X))^2\right)" class="math inline" /> is the variance of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> (the square root of the variance is called the standard deviation)</li>
+<li><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Cov%28X%2CY%29%3DE%28%28X-E%28X%29%29%28Y-E%28Y%29%29%29" alt="Cov(X,Y)=E((X-E(X))(Y-E(Y)))" title="Cov(X,Y)=E((X-E(X))(Y-E(Y)))" class="math inline" /> is the covariance of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline" /></li>
+</ul>
+<p>Expectation, variance, and covariance require real numbers and hence apply to random variables (events don't have that requirement). Variance and covariance are <em>means</em> by definition.</p>
+<p>Now let's derive some useful things from here. See the <a href="./linearity-of-expectation.html">next</a> posts.</p>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Proof strategies revisited</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Proof strategies revisited</h1>
+<p class="date">[2020-07-22 Wed]</p>
+</header>
+<h2 id="prelude">Prelude</h2>
+<p>Statements in logic are either true or false. Also, true and false are the negation of each other.</p>
+<p>A statement is a (possibly complex) formula of boolean logic.</p>
+<h2 id="definition-of-proof">Definition of proof</h2>
+<p>In the first chapter of his book <em>How to prove it</em>, Velleman mentions at least three times what defines a valid proof.</p>
+<p>A proof is valid if the premises can't be true without the conclusion being true as well.</p>
+<h2 id="meaning-of-proof">Meaning of proof</h2>
+<p>The premises are statements that are given to be true at the beginning of the proof. The conclusion is a statement (constructed from the premises) that must be true at the end of the proof.</p>
+<p>Said differently, the conclusion must not be false when the premises are true, for the proof to be valid.</p>
+<p>This is useful because once you've established the proof to be valid, you can use it with whatever conditions make the premises true, and be sure that the conclusion is true as well!</p>
+<h2 id="proof-strategies-again">Proof strategies, <a href="./proof-strategies.html">again</a></h2>
+<p>In the context of proofs, the premises and the conclusion are expressed as true statements (by convention). <em>Assume <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" />, prove</em> <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> means <em>assume <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is true, prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> is true</em>. But of course, in general, formulas take on either true or false.</p>
+<h3 id="proving-prightarrow-q">Proving <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" /></h3>
+<p>Notice there is no premise here. Only a conclusion. You want to know whether its formula always comes out true.</p>
+<table>
+<caption>Truth table of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Crightarrow" alt="\rightarrow" title="\rightarrow" class="math inline" /></caption>
+<thead>
+<tr class="header">
+<th><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /></th>
+<th><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /></th>
+<th><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" /></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr class="odd">
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<p>When <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is false, the formula is true no matter what <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> is (first two lines of the table). So the remaining question is when <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is true. If, from <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> being true, you show that <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> must be true as well, then the formula is true in that situation (fourth line of the table). Since you've shown that <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> must be true if <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is true, the formula is never false (ie the third line of the table never applies).</p>
+<p>Hence the proof strategy : to prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" />, assume <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> (ie assume <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is true) and show <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> (ie show <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> is true). In that case <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" /> is always true.</p>
+<h3 id="disproving">Disproving</h3>
+<p>A valid proof means that the conclusion is always true (given true premises). Having a single case where the conclusion is false (given true premises), fails that definition, and suffices to invalidate a proof.</p>
+<p>Example : To disprove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" />, finding a single instance where <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is true but <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> is false suffices, because then the formula is false (third line of the table). In that case <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" /> is <u>not</u> always true.</p>
+<h3 id="proof-by-contradiction">Proof by contradiction</h3>
+<p>The basic idea in proving a statement by contradiction is first to assume its negation, then show it yields a conclusion that is impossible.</p>
+<p>Proving <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20Q" alt="\neg Q" title="\neg Q" class="math inline" />. Assume <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" />, and find some statement <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20R" alt="R" title="R" class="math inline" /> such that <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q%20%5Crightarrow%20R" alt="Q \rightarrow R" title="Q \rightarrow R" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q%20%5Crightarrow%20%5Cneg%20R" alt="Q \rightarrow \neg R" title="Q \rightarrow \neg R" class="math inline" />. If <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> were true, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20R" alt="R" title="R" class="math inline" /> would be both true and false. This is impossible in first order logic. Since <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> can't be true, it must be false.</p>
+<p>Proving <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P_%7B1%7D%20%5Cland%20P_%7B2%7D%5Crightarrow%5Cneg%20Q" alt="P_{1} \land P_{2}\rightarrow\neg Q" title="P_{1} \land P_{2}\rightarrow\neg Q" class="math inline" />. This is logically equivalent to <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20%28P_%7B1%7D%20%5Cland%20P_%7B2%7D%20%5Cland%20Q%29" alt="\neg (P_{1} \land P_{2} \land Q)" title="\neg (P_{1} \land P_{2} \land Q)" class="math inline" />. You can assume its negation and show <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20P_%7B1%7D" alt="\neg P_{1}" title="\neg P_{1}" class="math inline" /> or <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20P_%7B2%7D" alt="\neg P_{2}" title="\neg P_{2}" class="math inline" /> (ie contradict one of the givens).</p>
+</body>
+</html>

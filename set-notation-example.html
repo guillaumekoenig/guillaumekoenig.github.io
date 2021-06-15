@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Set notation example</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Set notation example</h1>
+<p class="date">[2020-05-02 Sat]</p>
+</header>
+<p>Rewrite <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cmathcal%7BP%7D%28%5Ccup_%7Bi%5Cin%20I%7DA_i%29%5Cnsubseteq%5Ccup_%7Bi%5Cin%20I%7D%5Cmathcal%7BP%7D%28A_i%29" alt="\mathcal{P}(\cup_{i\in I}A_i)\nsubseteq\cup_{i\in I}\mathcal{P}(A_i)" title="\mathcal{P}(\cup_{i\in I}A_i)\nsubseteq\cup_{i\in I}\mathcal{P}(A_i)" class="math inline" /> with logical connectives (p. 81 in <em>How to prove it</em>). <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cmathcal%7BP%7D" alt="\mathcal{P}" title="\mathcal{P}" class="math inline" /> is the powerset operator.</p>
+<p>Start with the outermost symbol, "is a subset of", negated:</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0A%5Cneg%5Cforall%20x%28x%5Cin%20%5Cmathcal%7BP%7D%28%5Ccup_%7Bi%5Cin%20I%7DA_i%29%5Cto%20x%5Cin%20%5Ccup_%7Bi%5Cin%20I%7D%5Cmathcal%7BP%7D%28A_i%29%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+\neg\forall x(x\in \mathcal{P}(\cup_{i\in I}A_i)\to x\in \cup_{i\in I}\mathcal{P}(A_i))
+\end{align*}
+" title="\begin{align*}
+\neg\forall x(x\in \mathcal{P}(\cup_{i\in I}A_i)\to x\in \cup_{i\in I}\mathcal{P}(A_i))
+\end{align*}
+" class="math display" />
+<p>Let's simplify by defining the statements <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28x%29%3Dx%5Cin%5Cmathcal%7BP%7D%28%5Ccup_%7Bi%5Cin%20I%7DA_i%29" alt="P(x)=x\in\mathcal{P}(\cup_{i\in I}A_i)" title="P(x)=x\in\mathcal{P}(\cup_{i\in I}A_i)" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q%28x%29%3Dx%5Cin%5Ccup_%7Bi%5Cin%20I%7D%5Cmathcal%7BP%7D%28A_i%29" alt="Q(x)=x\in\cup_{i\in I}\mathcal{P}(A_i)" title="Q(x)=x\in\cup_{i\in I}\mathcal{P}(A_i)" class="math inline" />:</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0A%5Cneg%5Cforall%20x%28P%28x%29%5Cto%20Q%28x%29%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+\neg\forall x(P(x)\to Q(x))
+\end{align*}
+" title="\begin{align*}
+\neg\forall x(P(x)\to Q(x))
+\end{align*}
+" class="math display" />
+<p>Rewrite implication, and distribute negation:</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0A%26%5Cneg%5Cforall%20x%28%5Cneg%20P%28x%29%5Clor%20Q%28x%29%29%20%5C%5C%0A%26%5Cexists%20x%20%5Cneg%28%5Cneg%20P%28x%29%5Clor%20Q%28x%29%29%20%5C%5C%0A%26%5Cexists%20x%20%28P%28x%29%5Cland%20%5Cneg%20Q%28x%29%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+&amp;\neg\forall x(\neg P(x)\lor Q(x)) \\
+&amp;\exists x \neg(\neg P(x)\lor Q(x)) \\
+&amp;\exists x (P(x)\land \neg Q(x))
+\end{align*}
+" title="\begin{align*}
+&amp;\neg\forall x(\neg P(x)\lor Q(x)) \\
+&amp;\exists x \neg(\neg P(x)\lor Q(x)) \\
+&amp;\exists x (P(x)\land \neg Q(x))
+\end{align*}
+" class="math display" />
+<p>Work on <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> (note <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> is a set):</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AP%28x%29%20%26%5Cleftrightarrow%20x%20%5Cin%20%5Cmathcal%7BP%7D%28%5Ccup_%7Bi%5Cin%20I%7DA_i%29%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20x%20%5Csubseteq%20%5Ccup_%7Bi%20%5Cin%20I%7DA_i%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Ctext%7Bdefinition%20of%20elementhood%20of%20%24%5Cmathcal%7BP%7D%24%7D%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20%5Cforall%20y%28y%5Cin%20x%5Cto%20y%5Cin%20%5Ccup_%7Bi%5Cin%20I%7DA_i%29%20%20%26%5Ctext%7Bdefinition%20of%20subset%7D%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20%5Cforall%20y%28y%5Cin%20x%5Cto%20%5Cexists%20i%5Cin%20I%28y%5Cin%20A_i%29%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+P(x) &amp;\leftrightarrow x \in \mathcal{P}(\cup_{i\in I}A_i)\\
+     &amp;\leftrightarrow x \subseteq \cup_{i \in I}A_i               &amp;\text{definition of elementhood of $\mathcal{P}$}\\
+     &amp;\leftrightarrow \forall y(y\in x\to y\in \cup_{i\in I}A_i)  &amp;\text{definition of subset}\\
+     &amp;\leftrightarrow \forall y(y\in x\to \exists i\in I(y\in A_i))
+\end{align*}
+" title="\begin{align*}
+P(x) &amp;\leftrightarrow x \in \mathcal{P}(\cup_{i\in I}A_i)\\
+     &amp;\leftrightarrow x \subseteq \cup_{i \in I}A_i               &amp;\text{definition of elementhood of $\mathcal{P}$}\\
+     &amp;\leftrightarrow \forall y(y\in x\to y\in \cup_{i\in I}A_i)  &amp;\text{definition of subset}\\
+     &amp;\leftrightarrow \forall y(y\in x\to \exists i\in I(y\in A_i))
+\end{align*}
+" class="math display" />
+<p>Work on <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" />:</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AQ%28x%29%20%26%5Cleftrightarrow%20x%5Cin%20%5Ccup_%7Bi%5Cin%20I%7D%5Cmathcal%7BP%7D%28A_i%29%20%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20%5Cexists%20i%5Cin%20I%20%28x%5Cin%20%5Cmathcal%7BP%7D%28A_i%29%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Ctext%7Bdefinition%20of%20set%20union%7D%20%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20%5Cexists%20i%5Cin%20I%20%28x%5Csubseteq%20A_i%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Ctext%7Bdefinition%20of%20elementhood%20of%20%24%5Cmathcal%7BP%7D%24%7D%20%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20%5Cexists%20i%5Cin%20I%20%28%5Cforall%20y%28y%5Cin%20x%5Cto%20y%5Cin%20A_i%29%29%20%20%20%20%20%20%20%26%5Ctext%7Bdefinition%20of%20subset%7D%20%5C%5C%0A%20%20%20%20%20%26%5Cleftrightarrow%20%5Cexists%20i%5Cin%20I%20%28%5Cforall%20y%28y%5Cnot%5Cin%20x%20%5Clor%20y%5Cin%20A_i%29%29%20%26%5Ctext%7Bimplication%7D%20%5C%5C%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+Q(x) &amp;\leftrightarrow x\in \cup_{i\in I}\mathcal{P}(A_i) \\
+     &amp;\leftrightarrow \exists i\in I (x\in \mathcal{P}(A_i))               &amp;\text{definition of set union} \\
+     &amp;\leftrightarrow \exists i\in I (x\subseteq A_i)                      &amp;\text{definition of elementhood of $\mathcal{P}$} \\
+     &amp;\leftrightarrow \exists i\in I (\forall y(y\in x\to y\in A_i))       &amp;\text{definition of subset} \\
+     &amp;\leftrightarrow \exists i\in I (\forall y(y\not\in x \lor y\in A_i)) &amp;\text{implication} \\
+\end{align*}
+" title="\begin{align*}
+Q(x) &amp;\leftrightarrow x\in \cup_{i\in I}\mathcal{P}(A_i) \\
+     &amp;\leftrightarrow \exists i\in I (x\in \mathcal{P}(A_i))               &amp;\text{definition of set union} \\
+     &amp;\leftrightarrow \exists i\in I (x\subseteq A_i)                      &amp;\text{definition of elementhood of $\mathcal{P}$} \\
+     &amp;\leftrightarrow \exists i\in I (\forall y(y\in x\to y\in A_i))       &amp;\text{definition of subset} \\
+     &amp;\leftrightarrow \exists i\in I (\forall y(y\not\in x \lor y\in A_i)) &amp;\text{implication} \\
+\end{align*}
+" class="math display" />
+<p>Putting it together, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cmathcal%7BP%7D%28%5Ccup_%7Bi%5Cin%20I%7DA_i%29%5Cnsubseteq%5Ccup_%7Bi%5Cin%20I%7D%5Cmathcal%7BP%7D%28A_i%29" alt="\mathcal{P}(\cup_{i\in I}A_i)\nsubseteq\cup_{i\in I}\mathcal{P}(A_i)" title="\mathcal{P}(\cup_{i\in I}A_i)\nsubseteq\cup_{i\in I}\mathcal{P}(A_i)" class="math inline" /> is equivalent to:</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0A%5Cexists%20x%28%26%5Cforall%20y%28y%5Cin%20x%5Cto%20%5Cexists%20i%5Cin%20I%28y%5Cin%20A_i%29%29%20%5C%5C%0A%20%20%20%20%5Cland%20%26%5Cforall%20i%5Cin%20I%28%5Cexists%20y%28y%5Cin%20x%20%5Cland%20y%5Cnot%5Cin%20A_i%29%29%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+\exists x(&amp;\forall y(y\in x\to \exists i\in I(y\in A_i)) \\
+    \land &amp;\forall i\in I(\exists y(y\in x \land y\not\in A_i)))
+\end{align*}
+" title="\begin{align*}
+\exists x(&amp;\forall y(y\in x\to \exists i\in I(y\in A_i)) \\
+    \land &amp;\forall i\in I(\exists y(y\in x \land y\not\in A_i)))
+\end{align*}
+" class="math display" />
+<h2 id="other-things-to-note">Other things to note</h2>
+<p>The contrapositive of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Cto%20Q" alt="P\to Q" title="P\to Q" class="math inline" /> is <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20Q%20%5Cto%20%5Cneg%20P" alt="\neg Q \to \neg P" title="\neg Q \to \neg P" class="math inline" /> and is equivalent. The converse of <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Cto%20Q" alt="P\to Q" title="P\to Q" class="math inline" /> is <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q%5Cto%20P" alt="Q\to P" title="Q\to P" class="math inline" /> and is not equivalent (nor is it the negation). Check with truth tables.</p>
+<p>If an implication and its converse are true, you've established the equivalence of the two propositions.</p>
+<p>Existence distributes over disjunction, universality over conjunction:</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0A%5Cexists%20x%28P%28x%29%5Clor%20Q%28x%29%29%20%26%5Cleftrightarrow%20%5Cneg%5Cneg%20%5Cexists%20x%28P%28x%29%5Clor%20Q%28x%29%29%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Cleftrightarrow%20%5Cneg%20%5Cforall%20x%28%5Cneg%20P%28x%29%20%5Cland%20%5Cneg%20Q%28x%29%29%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Cleftrightarrow%20%5Cneg%28%5Cforall%20x%5Cneg%20P%28x%29%20%5Cland%20%5Cforall%20x%5Cneg%20Q%28x%29%29%20%26%5Ctext%7Bassuming%20the%20latter%7D%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Cleftrightarrow%20%5Cexists%20x%20P%28x%29%20%5Clor%20%5Cexists%20x%20Q%28x%29%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%26%5Ctext%7Bdistribute%20negation%7D%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+\exists x(P(x)\lor Q(x)) &amp;\leftrightarrow \neg\neg \exists x(P(x)\lor Q(x)) \\
+             &amp;\leftrightarrow \neg \forall x(\neg P(x) \land \neg Q(x)) \\
+             &amp;\leftrightarrow \neg(\forall x\neg P(x) \land \forall x\neg Q(x)) &amp;\text{assuming the latter} \\
+             &amp;\leftrightarrow \exists x P(x) \lor \exists x Q(x)                &amp;\text{distribute negation}
+\end{align*}
+" title="\begin{align*}
+\exists x(P(x)\lor Q(x)) &amp;\leftrightarrow \neg\neg \exists x(P(x)\lor Q(x)) \\
+             &amp;\leftrightarrow \neg \forall x(\neg P(x) \land \neg Q(x)) \\
+             &amp;\leftrightarrow \neg(\forall x\neg P(x) \land \forall x\neg Q(x)) &amp;\text{assuming the latter} \\
+             &amp;\leftrightarrow \exists x P(x) \lor \exists x Q(x)                &amp;\text{distribute negation}
+\end{align*}
+" class="math display" />
+<h2 id="closing-remarks">Closing remarks</h2>
+<p>Logic symbols: <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cland" alt="\land" title="\land" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Clor" alt="\lor" title="\lor" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg" alt="\neg" title="\neg" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cto" alt="\to" title="\to" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cleftrightarrow" alt="\leftrightarrow" title="\leftrightarrow" class="math inline" />. You have propositional logic (or sentential logic), ie the logic of sentences.</p>
+<p>Quantifiers: <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cexists" alt="\exists" title="\exists" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cforall" alt="\forall" title="\forall" class="math inline" />. Added to the logic symbols, you have quantificational logic.</p>
+<p>Set notation is simply a convenience on top. For example, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20S%3D%5C%7Bx%20%7C%20P%28x%29%5C%7D" alt="S=\{x | P(x)\}" title="S=\{x | P(x)\}" class="math inline" /> is the set of elements for which <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> is true. <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x%5Cin%20S" alt="x\in S" title="x\in S" class="math inline" /> is another notation for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28x%29" alt="P(x)" title="P(x)" class="math inline" />.</p>
+<p>Collectively, the propositions, quantifiers, and set notation is called first-order logic. It's the language of mathematical statements.</p>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Covariance and correlation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Covariance and correlation</h1>
+<p class="date">[2019-11-12 Tue]</p>
+</header>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Cov%28X%2CY%29%3DE%28%28X-E%28X%29%29%28Y-E%28Y%29%29%29" alt="Cov(X,Y)=E((X-E(X))(Y-E(Y)))" title="Cov(X,Y)=E((X-E(X))(Y-E(Y)))" class="math inline" />. Using linearity of expectation, this is <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Cov%28X%2CY%29%3DE%28XY%29-2%5C%2CE%28X%29E%28Y%29%2BE%28X%29E%28Y%29%3DE%28XY%29-E%28X%29E%28Y%29" alt="Cov(X,Y)=E(XY)-2\,E(X)E(Y)+E(X)E(Y)=E(XY)-E(X)E(Y)" title="Cov(X,Y)=E(XY)-2\,E(X)E(Y)+E(X)E(Y)=E(XY)-E(X)E(Y)" class="math inline" />. If <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline" /> are independent (meaning outcomes of one are independent with all outcomes of the other), the following holds :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AE%28XY%29%0A%26%3D%5Csum_%7B%28k%2Ck%27%29%7D%20x_k%5C%2Cy_%7Bk%27%7D%5C%2CP%28X%3Dx_k%2CY%3Dy_%7Bk%27%7D%29%5C%5C%0A%26%3D%5Csum_%7B%28k%2Ck%27%29%7D%20x_k%5C%2Cy_%7Bk%27%7D%5C%2CP%28X%3Dx_k%7CY%3Dy_%7Bk%27%7D%29%5C%2CP%28Y%3Dy_%7Bk%27%7D%29%5C%5C%0A%26%3D%5Csum_%7B%28k%2Ck%27%29%7D%20x_k%5C%2Cy_%7Bk%27%7D%5C%2CP%28X%3Dx_k%29%5C%2CP%28Y%3Dy_%7Bk%27%7D%29%5C%5C%0A%26%3D%5Csum_k%20x_k%20P%28X%3Dx_k%29%20%5Csum_%7Bk%27%7D%20y_%7Bk%27%7D%20P%28Y%3Dy_%7Bk%27%7D%29%5C%5C%0A%26%3DE%28X%29E%28Y%29%5C%5C%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+E(XY)
+&amp;=\sum_{(k,k&#39;)} x_k\,y_{k&#39;}\,P(X=x_k,Y=y_{k&#39;})\\
+&amp;=\sum_{(k,k&#39;)} x_k\,y_{k&#39;}\,P(X=x_k|Y=y_{k&#39;})\,P(Y=y_{k&#39;})\\
+&amp;=\sum_{(k,k&#39;)} x_k\,y_{k&#39;}\,P(X=x_k)\,P(Y=y_{k&#39;})\\
+&amp;=\sum_k x_k P(X=x_k) \sum_{k&#39;} y_{k&#39;} P(Y=y_{k&#39;})\\
+&amp;=E(X)E(Y)\\
+\end{align*}
+" title="\begin{align*}
+E(XY)
+&amp;=\sum_{(k,k&#39;)} x_k\,y_{k&#39;}\,P(X=x_k,Y=y_{k&#39;})\\
+&amp;=\sum_{(k,k&#39;)} x_k\,y_{k&#39;}\,P(X=x_k|Y=y_{k&#39;})\,P(Y=y_{k&#39;})\\
+&amp;=\sum_{(k,k&#39;)} x_k\,y_{k&#39;}\,P(X=x_k)\,P(Y=y_{k&#39;})\\
+&amp;=\sum_k x_k P(X=x_k) \sum_{k&#39;} y_{k&#39;} P(Y=y_{k&#39;})\\
+&amp;=E(X)E(Y)\\
+\end{align*}
+" class="math display" />
+<p>I.e., if <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline" /> are independent, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20E%28XY%29%3DE%28X%29E%28Y%29" alt="E(XY)=E(X)E(Y)" title="E(XY)=E(X)E(Y)" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Cov%28X%2CY%29%3D0" alt="Cov(X,Y)=0" title="Cov(X,Y)=0" class="math inline" /> (but converse not true). A formula where this is handy is this one :</p>
+<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20%5Cbegin%7Balign%2A%7D%0AVar%28X%2BY%29%0A%26%3DE%5Cleft%28%28X%2BY-E%28X%2BY%29%29%5E2%5Cright%29%5C%5C%0A%26%3DE%5Cleft%28%28X-E%28X%29%2BY-E%28Y%29%29%5E2%5Cright%29%5C%5C%0A%26%3DE%5Cleft%28%28X-E%28X%29%29%5E2%2B%28Y-E%28Y%29%29%5E2-2%5C%2C%28X-E%28X%29%29%28Y-E%28Y%29%29%5Cright%29%5C%5C%0A%26%3DVar%28X%29%2BVar%28Y%29-2%5C%2CCov%28X%2CY%29%5C%5C%0A%26%3DVar%28X%29%2BVar%28Y%29%0A%5Cend%7Balign%2A%7D%0A" alt="\begin{align*}
+Var(X+Y)
+&amp;=E\left((X+Y-E(X+Y))^2\right)\\
+&amp;=E\left((X-E(X)+Y-E(Y))^2\right)\\
+&amp;=E\left((X-E(X))^2+(Y-E(Y))^2-2\,(X-E(X))(Y-E(Y))\right)\\
+&amp;=Var(X)+Var(Y)-2\,Cov(X,Y)\\
+&amp;=Var(X)+Var(Y)
+\end{align*}
+" title="\begin{align*}
+Var(X+Y)
+&amp;=E\left((X+Y-E(X+Y))^2\right)\\
+&amp;=E\left((X-E(X)+Y-E(Y))^2\right)\\
+&amp;=E\left((X-E(X))^2+(Y-E(Y))^2-2\,(X-E(X))(Y-E(Y))\right)\\
+&amp;=Var(X)+Var(Y)-2\,Cov(X,Y)\\
+&amp;=Var(X)+Var(Y)
+\end{align*}
+" class="math display" />
+<p>I.e., if <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline" /> are independent, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Var%28X%2BY%29%3DVar%28X%29%2BVar%28Y%29" alt="Var(X+Y)=Var(X)+Var(Y)" title="Var(X+Y)=Var(X)+Var(Y)" class="math inline" />. <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Var" alt="Var" title="Var" class="math inline" /> doesn't scale with a scalar, so there is no claim of linearity. However, saying "<img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Var" alt="Var" title="Var" class="math inline" /> is <em>additive</em>" is correct (when adding independent random variables). For example, the variance of the number of heads in 100 independent fair coin tosses is 100 times the variance of a single fair coin toss, i.e. <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20100%5Ccdot%5Cleft%280.5-0.5%5E2%5Cright%29%3D25" alt="100\cdot\left(0.5-0.5^2\right)=25" title="100\cdot\left(0.5-0.5^2\right)=25" class="math inline" />. It's way simpler to compute variance that way than to consider the 100 tosses as one outcome.</p>
+<p>Finally, correlation : <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20corr%28X%2CY%29%3D%5Cfrac%7BCov%28X%2CY%29%7D%7B%5Csqrt%7BVar%28X%29Var%28Y%29%7D%7D" alt="corr(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}" title="corr(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}" class="math inline" />. In particular, since <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Cov%28X%2CX%29%3DVar%28X%29" alt="Cov(X,X)=Var(X)" title="Cov(X,X)=Var(X)" class="math inline" />, <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20corr%28X%2CX%29%3D1" alt="corr(X,X)=1" title="corr(X,X)=1" class="math inline" />. A random variable is perfectly correlated with itself.</p>
+</body>
+</html>

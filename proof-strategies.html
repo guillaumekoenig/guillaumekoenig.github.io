@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Proof strategies</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Proof strategies</h1>
+<p class="date">[2020-05-29 Fri]</p>
+</header>
+<p>Working on a proof involves rewriting the givens and the goal. It ends when all the steps of going from givens to the goal have been spelled out.</p>
+<p>Prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%20%5Crightarrow%20Q" alt="P \rightarrow Q" title="P \rightarrow Q" class="math inline" /> (goal) : assume <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> (given), prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /> (goal). This can be applied repeatedly for multiple conditionals. Another possibility is to prove the contrapositive <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20Q%5Crightarrow%5Cneg%20P" alt="\neg Q\rightarrow\neg P" title="\neg Q\rightarrow\neg P" class="math inline" />. There is no hard and fast rule to which is better, try one and if it doesn't work, try the other.</p>
+<p>Prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20P" alt="\neg P" title="\neg P" class="math inline" /> (goal) : it's usually easier to prove a positive statement. Try to transform it by distributing the negation. This is not always possible, ie if <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> doesn't contain logical connectives. In general, if it's not obvious how to reach the goal, proof by contradiction might work : assume the negation of the goal, and reach a contradiction with one of the other givens.</p>
+<p>Prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cforall%20x%28...%29" alt="\forall x(...)" title="\forall x(...)" class="math inline" /> (goal) : let <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> be arbitrary and prove the statement. Since <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> was arbitrary, you can conclude it's true for all <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" />. For example with <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cforall%20x%28P%28x%29%20%5Crightarrow%20Q%28x%29%29" alt="\forall x(P(x) \rightarrow Q(x))" title="\forall x(P(x) \rightarrow Q(x))" class="math inline" />, start by letting <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> be arbitrary, then prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%28x%29%20%5Crightarrow%20Q%28x%29" alt="P(x) \rightarrow Q(x)" title="P(x) \rightarrow Q(x)" class="math inline" /> (see the first item), then conclude the implication is true for all <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" />.</p>
+<p>Prove <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cexists%20x%28...%29" alt="\exists x(...)" title="\exists x(...)" class="math inline" /> (goal). You just need to find one value for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> which makes the statement true. The proof starts by letting <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" /> be one of those values (given), then proving the statement to be true. If the statement is an equation, scratch work (not included in the proof) would involve solving for <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20x" alt="x" title="x" class="math inline" />.</p>
+<p>There are also strategies to use givens. Consider for example the following rules of inference :</p>
+<ul>
+<li><em>modus ponens</em> : knowing <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P" alt="P" title="P" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" />, you can infer <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20Q" alt="Q" title="Q" class="math inline" /></li>
+<li><em>modus tollens</em> : knowing <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20Q" alt="\neg Q" title="\neg Q" class="math inline" /> and <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20P%5Crightarrow%20Q" alt="P\rightarrow Q" title="P\rightarrow Q" class="math inline" />, you can infer <img style="vertical-align:middle" src="https://latex.codecogs.com/png.latex?%5Ctextstyle%20%5Cneg%20P" alt="\neg P" title="\neg P" class="math inline" /></li>
+</ul>
+<p><em>How to prove it</em> (2nd ed.) has a nice summary of strategies to apply on goals and givens on pp. 376-379.</p>
+</body>
+</html>

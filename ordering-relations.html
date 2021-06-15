@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Ordering relations</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Ordering relations</h1>
+<p class="date">[2020-11-10 Tue]</p>
+</header>
+<p>Section 4.4 of <em>How to prove it</em>.</p>
+<h2 id="definitions">Definitions</h2>
+<ul>
+<li>R is antisymmetric (on A) ? ∀(x,y) ∈ A × A (xRy ∧ yRx → x = y). Example : ≤.</li>
+<li>R is a partial order (on A) ? Reflexive, transitive, and <strong>antisymmetric</strong>.</li>
+<li>R is a total order (on A) ? Partial order relation, and ∀(x,y) ∈ A × A (xRy ∨ yRx).</li>
+<li>R partial order on A, B ⊆ A ; b is an R-smallest element of B ? b ∈ B ∧ ∀x ∈ B (bRx). (It's in relation with all the elements.)</li>
+<li>R partial order on A, B ⊆ A ; b is an R-minimal element of B ? b ∈ B ∧ ¬∃x ∈ B (xRb ∧ x ≠ b). (No other element is in relation with it.)</li>
+<li>R partial order on A, B ⊆ A ; a is a lower bound of B ? a ∈ A ∧ ∀x ∈ B (aRx). (Similar to smallest except need not belong to B.)</li>
+<li>What is the least upper bound of a set ? The smallest element in the set of upper bounds for that set (needs not exist).</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Is identity symmetric or antisymmetric ? Both.</li>
+<li>Do antisymmetric and asymmetric have the same definition ? No.</li>
+</ul>
+<h2 id="practice">Practice</h2>
+<h3 id="suppose-r-is-a-relation-on-a.-you-might-think-r-could-not-be-both-antisymmetric-and-symmetric-but-this-isnt-true.-prove-that-r-is-both-antisymmetric-and-symmetric-iff-r-ia.">Suppose R is a relation on A. You might think R could not be both antisymmetric and symmetric, but this isn't true. Prove that R is both antisymmetric and symmetric iff R ⊆ i<sub>A</sub>.</h3>
+<p>→ R is antisymmetric and symmetric. Prove R ⊆ i<sub>A</sub>, ie ∀(x,y) ∈ R ((x,y) ∈ i<sub>A</sub>). Let (x,y) ∈ R be arbitrary. Then (y,x) ∈ R due to R being symmetric. Then y = x due to R being antisymmetric. Then (x,y) = (x,x) ∈ i<sub>A</sub>.</p>
+<p>← R ⊆ i<sub>A</sub>. Prove R antisymmetric and symmetric. Let (x,y) ∈ R be arbitrary. Since R ⊆ i<sub>A</sub>, x = y, and (x,y) = (x,x) = (y,x). Hence (y,x) ∈ R, ie R is symmetric. Suppose xRy and yRx. Then x = y simply by the nature of R. Hence R is antisymmetric.</p>
+<h3 id="suppose-r-is-a-partial-order-on-a-and-s-is-a-partial-order-on-b.-define-a-relation-t-on-a-b-as-follows-abab-a-b-a-b-ara-and-bsb.-show-that-t-is-partial-order-on-a-b.-if-both-r-and-s-and-total-orders-will-t-also-be-a-total-order">Suppose R is a partial order on A and S is a partial order on B. Define a relation T on A × B as follows: {((a,b),(a',b')) ∈ (A × B) × (A × B) | aRa' and bSb'}. Show that T is partial order on A × B. If both R and S and total orders, will T also be a total order?</h3>
+<p>Reflexive. Let (a,b) ∈ A × B be arbitrary. Prove (a,b)T(a,b), ie prove aRa and bSb. This is case since R and S are partial orders, and hence themselves reflexive.</p>
+<p>Transitive. Let ((a,b),(a',b')) ∈ T and ((a',b'),(a'',b'')) ∈ T. Prove that ((a,b),(a'',b'')) ∈ T, ie aRa'' and bSb''. Again, this follows from R and S being partial orders, and hence themselves transitive.</p>
+<p>Antisymmetric. Same reasoning as for transitiveness.</p>
+<p>Total order. Let ((a,b),(a',b')) ∈ (A × B) × (A × B). Prove it or ((a',b'),(a,b)) is an element of T. Since R and S are assumed to be total, (aRa' ∨ a'Ra) ∧ (bSb' ∨ b'Sb). Construct an example where aRa' and b'Sb, but not a'Ra nor bSb'. Then ((a,b'),(a',b)) ∈ T, but neither one of the two elements needed for total ordering are.</p>
+<h3 id="let-d-xy-ℕ-ℕ-x-divides-y.-let-b-x-ℕ-x-1.-does-b-have-any-minimal-elements-if-so-what-are-they-does-b-have-a-smallest-element-if-so-what-is-it">Let D = {(x,y) ∈ ℕ × ℕ | x divides y}. Let B = {x ∈ ℕ | x &gt; 1}. Does B have any minimal elements? If so, what are they? Does B have a smallest element? If so, what is it?</h3>
+<p>D = {(1,1),(1,2),(1,3)…,(2,2),(2,4),(2,6)…,(3,3),(3,6),(3,9)…}.</p>
+<p>Minimal elements (D-minimal elements). You're looking for the set {x ∈ B | ¬∃y ∈ B (yDx ∧ y ≠ x)}. Ie the set of numbers &gt; 1 for which no other number &gt; 1 divides them. Ie it's the set of prime numbers.</p>
+<p>Smallest elements (D-smallest elements). You're looking for the set {x ∈ B | ∀y ∈ B (xDy)}. No number &gt; 1 divides all numbers, so the set is empty.</p>
+<h3 id="suppose-r-is-a-partial-order-on-a-b-a-and-b-b.-youre-given-that-r-1-is-also-a-partial-order-on-a-in-that-case.-a-prove-that-b-is-the-r-largest-element-of-b-iff-it-is-the-r-1-smallest-element-of-b.-b-prove-that-b-is-an-r-maximal-element-of-b-iff-it-is-in-an-r-1-minimal-element-of-b.">Suppose R is a partial order on A, B ⊆ A, and b ∈ B. You're given that R<sup>-1</sup> is also a partial order on A in that case. (a) Prove that b is the R-largest element of B iff it is the R<sup>-1</sup>-smallest element of B. (b) Prove that b is an R-maximal element of B iff it is in an R<sup>-1</sup>-minimal element of B.</h3>
+<p>(a) b the R-greatest element of B ↔︎ b ∈ B ∧ ∀x ∈ B (xRb) ↔︎ b ∈ B ∧ ∀x ∈ B (bR<sup>-1</sup>x) ↔︎ b the R<sup>-1</sup>-smallest element of B.</p>
+<p>(b) b an R-maximal element of B ↔︎ b ∈ B ∧ ¬∃x ∈ B (bRx ∧ x ≠ b) ↔︎ b ∈ B ∧ ¬∃x ∈ B (xR<sup>-1</sup>b ∧ x ≠ b) ↔︎ b an R<sup>-1</sup>-minimal element of B.</p>
+<p>Note : it is more succinct to keep the equivalence than separate out the two directions.</p>
+<h3 id="if-a-subset-of-a-partially-ordered-set-has-exactly-one-minimal-element-must-that-element-be-a-smallest-element">If a subset of a partially ordered set has exactly one minimal element, must that element be a smallest element?</h3>
+<p>R a partially ordered set on A, B ⊆ A, b ∈ B the only R-minimal element of B. Ie ¬∃x ∈ B (xRb ∧ x ≠ b) ∧ ∀b' ∈ B (¬∃x ∈ B (xRb' ∧ x ≠ b') → b = b'). Prove ∀x ∈ B (bRx).</p>
+<p>After trying in earnest, it doesn't seem the proof can be completed. It might mean the premises are insufficient to reach the conclusion, ie the statement is invalid. A counter-example is needed to establish it firmly. (The book provides one but I could not come up with one myself.)</p>
+<h3 id="suppose-r-is-a-partial-order-on-a-and-b-a.-let-u-be-the-set-of-all-upper-bounds-for-b.-a-prove-that-u-is-closed-upward-that-is-prove-that-if-x-u-and-xry-then-y-u.-b-prove-that-every-element-of-b-is-a-lower-bound-for-u.-c-prove-that-if-x-is-the-greatest-lower-bound-of-u-then-x-is-the-least-upper-bound-of-b.">Suppose R is a partial order on A and B ⊆ A. Let U be the set of all upper bounds for B. (a) Prove that U is closed upward; that is, prove that if x ∈ U and xRy, then y ∈ U. (b) Prove that every element of B is a lower bound for U. (c) Prove that if x is the greatest lower bound of U, then x is the least upper bound of B.</h3>
+<p>(a) U = {u ∈ A | ∀x ∈ B (xRu)}. Suppose u ∈ U, u' ∈ A, and uRu'. Prove u' ∈ U. Since u ∈ U, u ∈ A ∧ ∀x ∈ B (xRu). Since R is partial order, it is transitive. Since uRu', it follows ∀x ∈ B (xRu'). Hence u' ∈ U.</p>
+<p>(b) Prove ∀b ∈ B, ∀x ∈ U (bRx). Let b ∈ B and x ∈ U be arbitrary. Since x ∈ U, ∀y ∈ B (yRx). In particular, b ∈ B, so bRx (universal instantiation).</p>
+<p>(c) Focus on the goal. It has two parts. Prove x is an upper bound of B (ie ∀b ∈ B (bRx), and that it is the smallest element of U (ie ∀y ∈ U (xRy)). You're given that x is the greatest lower bound of U.</p>
+<p>Part 1. Let b ∈ B be arbitrary. Prove bRx. Given (b), b is a lower bound for U. But so is x. In fact x is the greatest of them, so bRx.</p>
+<p>Part 2. Since x is an upper bound of B, x ∈ U. Prove it is the smallest. Let y ∈ U be arbitrary, prove xRy. Since x is a lower bound of U, ∀u ∈ U (xRu). In particular, xRy.</p>
+</body>
+</html>
