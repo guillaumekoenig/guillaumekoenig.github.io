@@ -203,7 +203,7 @@ Since a $Bin(n,p)$ distribution is the sum of $n$ $Ber(p)$ random variables, whi
 
 # Exploratory data analysis: graphical summaries
 
-We're now in statistics, concerned with a dataset (or a subset of it called a sample), with data points denoted $x_1$, ..., $x_n$ (not random variables).
+We're now in statistics, concerned with a dataset, for which data points (or observations) are denoted $x_1$, ..., $x_n$ (not random variables).
 
 The simplest graphical summaries are histograms. Choosing a bucket size isn't obvious when you want to preserve features of the dataset. (Note also nothing says you have to use a fixed bucket size, eg recall sparse exponential histograms.) There's a way to optimise some cost function for best bucket size, but it still has drawbacks (features not adequately represented). One can also build an empirical distribution function (with the curve stepping up by $1/n$ at each data point).
 
