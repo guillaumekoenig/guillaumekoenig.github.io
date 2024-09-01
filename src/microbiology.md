@@ -30,4 +30,6 @@ A few notes on chapter 1 of *Microbiology for dummies*.
 
 ---
 
-Molecular biology. Levels, ascending order: atom, molecule, nucleotide/nucleic acid/base which all refer somewhat to ACGT in DNA (ACGU in RNA), codon (formed from 3 RNA bases). Hence there are 64 possible codons, that encode 20 building blocks (molecular compounds) for proteins. That encoding is called the genetic code. Ribosomes produce those building blocks (amino acids).
+Molecular biology. Levels, ascending order: atom, molecule, nucleotide/nucleic acid/base which all refer somewhat to ACGT in DNA (ACGU in RNA), codon (formed from 3 RNA bases). Hence there are 64 possible codons, that encode 20 amino acids (molecular compounds). Ribosomes translate the RNA into chains of amino acids, forming the proteins. That encoding is called the genetic code. It is *not* a simple scheme of combination of 3 bases with repetition mapping to one amino acid (even though that produces 20 possibilities too).
+
+The human genome has 3 billion based. *E. coli* has 4.5 million.
