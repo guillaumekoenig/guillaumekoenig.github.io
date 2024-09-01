@@ -7,8 +7,8 @@ Chapter 4 of *How to prove it*.
 
 *Summary*
 
-- Equivalence relation: symmetric and transitive
-- Order relation: no symmetry and transitive
+- Equivalence relation: symmetric, transitive
+- Order relation: no symmetry, transitive
 
 # Relations
 
