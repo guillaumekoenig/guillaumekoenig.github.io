@@ -5,7 +5,8 @@ title: Relations
 
 Chapter 4 of *How to prove it*.
 
-Summary:
+*Summary*
+
 - Equivalence relation: symmetric and transitive
 - Order relation: no symmetry and transitive
 
