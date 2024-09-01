@@ -72,7 +72,7 @@ In the following, $R$ is a partial order on $A$, and $B \subseteq A$.
 -   What's the **least upper bound** (LUB) of a set? The smallest
     element in the set of upper bounds for that set (needs not exist).
 -   What's the **closure** of a relation $R ⊆ A × A$, on some
-    *property*? the *smallest set* $⊆ A × A$ among those that include
+    *property*? the *smallest set* $⊆ A × A$ (relation) that includes
     $R$ and satisfies *property* (if there is such a smallest set).
     Example: the transitive closure of dependencies in package
     management.
