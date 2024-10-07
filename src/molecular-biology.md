@@ -22,4 +22,4 @@ It was experimentally verified that codons come in 3 bases the following way. In
 
 # Introns and splicing
 
-E. coli's DNA is translated into mRNA directly (by base pairing). But there's one extra step in larger animals.
+DNA is translated into mRNA in the nucleus (by base pairing), before it is exported to the cytoplasm for building the protein. In the nucleus, it's refered to as precursor mRNA to distinguish it from when in the cytoplasm. Early on it was clear that E. coli's mRNA was the same throughout. But not so in in larger animals: precursor mRNA was on average 10 times larger than the final one in the cytoplasm. How come?
