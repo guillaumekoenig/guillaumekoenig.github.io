@@ -70,7 +70,7 @@ derives:
 
 \begin{align*}
 Var(X+Y) &= E[(X+Y-E(X+Y))^2] \\
-&\text{(expand)} \\
+&\text{(expand definition)} \\
 &= Var(X)+Var(Y)-2E[(X-E[X])(Y-E[Y])]
 \end{align*}
 
@@ -85,7 +85,7 @@ When they are dependent, it gives an idea how much they vary together
 ## Covariance
 \begin{align*}
 Cov(X,Y)&=E[(X-E[X])(Y-E[Y])] \\
-&\text{(expand)} \\
+&\text{(expand definition)} \\
 &=E[XY]-E[X]E[Y]
 \end{align*}
 The expanded formula shows why covariance is 0 when $X$ and $Y$ are
