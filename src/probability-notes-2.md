@@ -26,7 +26,9 @@ Of course probability remains positive and adding up to 1 over the entire sample
 p_X(x)=P(X=x,Y≤\infty) \\
 p_Y(y)=P(X≤\infty,Y=y)
 \end{align*}
-(interval instead of scalar for continuous)
+(for continuous there's marginal density functions)
+
+Both cases have marginal distribution functions.
 
 They are so called because they are found in the "margins" of a
 joint distribution table.
