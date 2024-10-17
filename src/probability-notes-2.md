@@ -21,7 +21,7 @@ Of course probability remains positive and adding up to 1 over the entire sample
 ## Joint distribution function
 \[F_{X,Y}(x,y)=P(X≤x,Y≤y)\]
 
-## Marginal distribution functions
+## Marginal mass functions
 \begin{align*}
 p_X(x)=P(X=x,Y≤\infty) \\
 p_Y(y)=P(X≤\infty,Y=y)
