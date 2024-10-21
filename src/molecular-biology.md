@@ -6,7 +6,7 @@ date: Aug 2024
 
 # mRNA
 
-Scale, in ascending order: atom, molecule, nucleotide/nucleic acid/base which all refer somewhat to ACGT in DNA (ACGU in RNA), codon (3 RNA bases). Hence there are 64 possible codons, that encode 20 amino acids (molecular compounds).
+Scale, in ascending order: atom < molecule < nucleotide/nucleic acid/base which all refer somewhat to ACGT in DNA (ACGU in RNA, ribonucleic acid) < codon (3 RNA bases). Hence there are 64 possible codons, that encode 20 amino acids (molecular compounds).
 
 That encoding is called the genetic code. It is *not* a simple scheme of all combinations of 3 given bases (possibly with repetition) mapping to a single amino acid (even though that produces 20 possibilities too). It was cracked experimentally by synthesizing chains of codons and looking at the resulting amino acid chains. AUG is the start sequence codon, UAG the stop sequence codon.
 
