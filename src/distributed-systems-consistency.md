@@ -32,7 +32,7 @@ Notes based on paper
 
 - A **history**, $H$? a sequence of events. (In other words, a set of
   events with a total order: this is *not* Leslie Lamport's
-  happens-before partial ordering of events.)
+  happens-before partial ordering of events.) The total order captures the real-time ordering of events.
 - An **event**? Either an invoke or response from a client/process on an
   object. (Process would be a more ancient term referring to
   single-threaded execution.)
@@ -60,6 +60,6 @@ when $res(e_1)$ precedes $inv(e_2)$ in H's sequence of events.
 
 "The impeachment motion needed the approval of eight of the 108 MPs in his People's Power Party for the necessary two-thirds majority. But in the end all except three chose not to vote, and it did not even reach quorum."
 
-I never really thought about what a quorum referred to despite reading about it in distributed system contexts. It's a term used when a group votes for a motion. It refers to the fraction of the group required to be present, above which the session can proceed. The motion is accepted if a majority (usually more than two-thirds, or more than half) of the quorum votes in favor (regardless of how many did vote).
+I never really thought about what a quorum referred to despite reading about it in distributed system contexts. It's a term used when a group votes for a motion. It refers to the fraction of the group required to be present, above which the session can proceed. The motion is accepted if a majority (usually two-thirds or half) of the quorum votes in favor (regardless of how many did vote).
 
 South Korea has 300 MPs, the quorum is usually a minimum of 151 members. Impeachment is a special case where there's a two-thirds voting *threshold* of the entire assembly (likened to a quorum in the news piece, but not quire an accurate use of the word): 192+3 votes didn't reach the minimum 200 votes threshold.
