@@ -10,7 +10,7 @@ header-includes: |
 :::{#index}
 - [Statistics notes](statistics-notes.md)
 - [Molecular biology](molecular-biology.md)
-- [72](72.md)
+- [The rule of 72](the-rule-of-72.md)
 - [Probability notes 2](probability-notes-2.md)
 - [Distributed systems consistency](distributed-systems-consistency.md)
 - [Modeling with Alloy](modeling-with-alloy.md)
