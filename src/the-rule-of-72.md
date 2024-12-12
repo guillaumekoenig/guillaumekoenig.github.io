@@ -1,6 +1,6 @@
 ---
 date: [2024-06-21 Fri]
-title: 72
+title: The rule of 72
 ---
 
 There's a rule of thumb called the rule of 72, that approximates how long it takes to double some quantity. It assumes a given rate of increase per unit of time (say $x$). How many units of time $n$ to double the initial quantity?
