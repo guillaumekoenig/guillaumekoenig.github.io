@@ -82,7 +82,7 @@ Further:
 -   Its probability mass function (PMF) is $p_X : ℝ → [0,1];\, p_X(x)
     = P(X = x)$
 -   Its (cumulative) distribution function (CDF) is $F_X : ℝ →
-    [0,1];\, F_X(x) = P(X ≤ x)$ (which is also $1-P(X>x)$)
+    [0,1];\, F_X(x) = P(X ≤ x)$ $($which is also $1-P(X>x)\text{)}$
 -   They can each be defined in terms of the other
 
 Note: $P(X)$ is meaningless, only events have probabilities. $X$ and
