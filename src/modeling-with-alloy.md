@@ -157,4 +157,4 @@ In this case, a fix is to exclude integers from Univ. But it's a bit
 contrived: add another set B, and you have the same problem (B must
 remain empty to satisfy the constraint on A because of this indirect
 reference to Univ). Really \*r was meant to be used with the join
-operator.
+operator (ie, dot in Alloy).
