@@ -84,3 +84,4 @@ Additional considerations:
 - You also need to think through the termination condition(s)
 - All of these benefit from computing prior values and looking them up to compute the current value (bottom-up dynamic programming)
 - Other coin change recurrence relation: the fewest number of coins $p(n)$ to give change for $n$. $p(n)=1+min\set{p(n-c)|c\in coins}$.
+- Kadane: maximum subarray sum. Consider all suffix subarrays ending at j: $p(j)=max(p(j-1)+arr[j],arr[j])$. Then you're looking for the max over all $j$s.
