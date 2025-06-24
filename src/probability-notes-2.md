@@ -123,7 +123,7 @@ f_Z(z)&=\int_{-\infty}^{\infty} f_X(z-y)\,f_Y(y)\,dy \qquad\text{(convolution in
   still get a normal distribution, however the total variance now
   needs to account for covariance between random variables.
 
-Outline of proof that independent $X_1\sim N(0,1)\land X_2\sim N(0,1)\implies X_1+X_2\sim N(0,2)$: Start with the convolution integral for the density of sum above:
+Outline of proof that independent $X_1\sim N(0,1)\land X_2\sim N(0,1)\implies X_1+X_2\sim N(0,2)$: Start from the convolution integral for the density of sum above:
 
 \begin{align*}
 f_{X_1+X_2}(z)&=\int_{-\infty}^{\infty} f_{X_1}(z-y)f_{X_2}(y)\,dy \\
