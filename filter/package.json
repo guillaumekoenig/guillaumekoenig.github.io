@@ -1,0 +1,21 @@
+{
+  "name": "filter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "filter.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "filter": "filter.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "katex": "^0.16.9"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7"
+  }
+}
