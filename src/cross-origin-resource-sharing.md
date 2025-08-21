@@ -8,7 +8,7 @@ requests to other domains that you allow. It's the other way around:
 you allow other domains making requests to your API (the "resource").
 Hence the configuration is with the API, not the requester.
 
-Actors:
+Entities:
 
 -   Client browser
 -   The domain to reach your API
