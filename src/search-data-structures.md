@@ -70,11 +70,11 @@ Node {
 Useful payload can be many things. It could be:
 
 1. A bool (to implement set)
-1. A count (to implement multiset, or count for a given prefix)
+1. A count (to implement multiset, or count for a particular prefix)
 1. A list/maxheap of completions (to implement autocomplete)
-1. A list of keyspaces associated with this prefix
+1. A list of keyspaces associated with this particular prefix
 
-Note the last two: In the former, the input is the prefix. In the latter, the output are the prefixes.
+Note the last two: In the former, the input is a prefix. In the latter, the input is a string for which we want to find all matching prefixes in the tree (keyspaces).
 
 Children is a map from the next bits of data (to match) to corresponding nodes. There are many optimization opportunities there. Bits could be an entire substring ("path compression"). Bonus points if 1) inlined in the node and 2) combined with payload and node pointer, it fits in a cache line (64 bytes). Children could also be a small inline associative array of a few byte values to Node (again to fit in cache line). Beyond cache line size, Children could be a heap allocated 256 associative array (also called a 256-radix tree). The takeaway is you optimize your implementation by juggling different node types.
 
