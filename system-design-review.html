@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>System design</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: unset;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+  <style>
+    header { margin-bottom: 2em; }
+    body { max-width: 30em; }
+
+    a:not(h1 a), a:visited:not(h1 a) { color: blue; }
+
+    h1 > a { text-decoration: none; }
+
+    .katex { font-size: 1em; }
+
+    .katex-display {
+      overflow-x: auto;
+      padding-block: 10px; /* vertical scroll bug */
+    }
+
+    @media (max-width: 600px) {
+      .katex-display {
+        /* overcome padding on mobile */
+        margin-left: -1em;
+        margin-right: -1em;
+      }
+    }  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><a href="/">System design</a></h1>
+</header>
+<h3 id="delivery-framework">1. Delivery framework</h3>
+<h3 id="gather-functional-vs-non-function-requirements">1.1. Gather
+functional vs non-function requirements</h3>
+<p>Functional:</p>
+<ul>
+<li>Function from the point of view of the user</li>
+<li>API design makes sense for <em>some</em> kind of problems</li>
+</ul>
+<p>Non-functional:</p>
+<ol type="1">
+<li>Availability (ie number of 9s)</li>
+<li>Consistency (eg split brain scenarios)</li>
+<li>Durability (copies of data you can lose; replication)</li>
+<li>Scalability (handling variations in load, scale out/in/up/down)</li>
+<li>Latency (eg time budget per request in ms)</li>
+</ol>
+<p>Ask interviewer if you've missed anything.</p>
+<p>Know your orders of magnitude for estimates.</p>
+<ul>
+<li>1 day ~100k s (3600*24)</li>
+<li>1 yr ~30e6 s</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Number of 9s (% uptime)</th>
+<th>Equivalent time (assuming year basis)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2 9s</td>
+<td>3 days</td>
+</tr>
+<tr class="even">
+<td>3 9s</td>
+<td>9 h</td>
+</tr>
+<tr class="odd">
+<td>4 9s</td>
+<td>1 h</td>
+</tr>
+<tr class="even">
+<td>5 9s</td>
+<td>5 min</td>
+</tr>
+<tr class="odd">
+<td>6 9s</td>
+<td>30s</td>
+</tr>
+</tbody>
+</table>
+<p>Note there's a factor of ~9 between each, because
+(1-.99)/9=0.1111...-0.11=0.0011...≈1-.999.</p>
+<p>Note MemoryDB's SLA is 4 9s availability (evaluated on a month basis
+though!). Below that, the customer gets credit.</p>
+<p>Those are fine, but also know estimates for number of users (at least
+an upper bound, like 1% of people on Earth).</p>
+<h3 id="define-core-entities">1.2. Define core entities</h3>
+<h3 id="define-apiinterface">1.3. Define API/interface</h3>
+<h3 id="dataflow-optional">1.4. Dataflow (optional)</h3>
+<h3 id="high-level-design">1.5. High-level design</h3>
+<p>It should answer the functional requirements.</p>
+<h3 id="deep-dives">1.6. Deep dives</h3>
+<p>They should address the non-functional requirements.</p>
+<h3 id="authn-redis-session-vs-json-web-token-jwt">2. Authn: Redis
+session vs JSON Web Token (JWT)</h3>
+<p>Using Redis to store the user session in the backend makes your API
+stateful. If Redis crashes, the user is logged out. If you shard the
+sessions across several Redis nodes, your API needs to reach the right
+one, now requiring routing.</p>
+<p>These problems are overcome with JWT. It encrypts the user/expiry
+payload at login into a token blob that is then passed around.
+Encryption is with a server-side private key, so that only backend nodes
+can read it. In fact any backend node can read it, allowing for scaling
+without specific routing.</p>
+<p>Just use short expiry times.</p>
+<p>OAuth2 is often used for the dance to get the JWT token in the first
+place (eg sign in with Google).</p>
+<h3 id="cache-write-through-vs-write-back">3. Cache: write-through vs
+write-back</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Write-through</th>
+<th>Write-back (behind)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Synchronously write to storage</td>
+<td>Asynchronously write to storage in batch</td>
+</tr>
+<tr class="even">
+<td>Think MemoryDB</td>
+<td>Think pure Redis with aof</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Lower latency but can lose data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dynamodb">4. DynamoDB</h3>
+<p>(primary,sort) key. Primary key value determines the partition
+holding the data (ie which shard, or machine). Eventually consistency
+reads by default (unless <code>ConsistentReads=true</code>). Good for
+both read (especially eventual) and writes, but no complex queries like
+with SQL.</p>
+<h3 id="token-bucket-algorithm-for-rate-limiting">5. Token bucket
+algorithm for rate limiting</h3>
+<p>Bucket of tokens with constant refill rate. A request consumes a
+token. If out of token, the request is rate limited. Bucket is usually
+per customer. It allows for bursts of traffic in addition to steady
+state traffic. Can be implemented in a Redis lua script to read and
+update count atomically.</p>
+<p>HTTP 429 to reject a request (+ helpful headers).</p>
+<p>You want to apply rate limiting at the gateway level, to protect your
+backend services/microservices.</p>
+<h3 id="apache-kafka-vs-redis-streams">6. Apache kafka vs Redis
+streams</h3>
+<p>Topics, partitions, consumer groups.</p>
+<h3 id="n.-use-excalidraw">n. Use Excalidraw :)</h3>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Forever notes</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: unset;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+  #index {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+    margin-top: -1em;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+  <style>
+    header { margin-bottom: 2em; }
+    body { max-width: 30em; }
+
+    a:not(h1 a), a:visited:not(h1 a) { color: blue; }
+
+    h1 > a { text-decoration: none; }
+
+    .katex { font-size: 1em; }
+
+    .katex-display {
+      overflow-x: auto;
+      padding-block: 10px; /* vertical scroll bug */
+    }
+
+    @media (max-width: 600px) {
+      .katex-display {
+        /* overcome padding on mobile */
+        margin-left: -1em;
+        margin-right: -1em;
+      }
+    }  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><a href="/">Forever notes</a></h1>
+</header>
+<div id="index">
+<ul>
+<li><a href="system-design-review.html">System design review</a></li>
+<li><a href="algo-review.html">Algo review</a></li>
+<li><a href="statistics-notes.html">Statistics notes</a></li>
+<li><a href="molecular-biology.html">Molecular biology</a></li>
+<li><a href="the-rule-of-72.html">The rule of 72</a></li>
+<li><a href="probability-notes-2.html">Probability notes 2</a></li>
+<li><a href="consistency-models.html">Consistency models</a></li>
+<li><a href="modeling-with-alloy.html">Modeling with Alloy</a></li>
+<li><a href="cross-origin-resource-sharing.html">Cross-Origin Resource
+Sharing</a></li>
+<li><a href="functions.html">Functions</a></li>
+<li><a href="microbiology.html">Microbiology</a></li>
+<li><a href="relations.html">Relations</a></li>
+<li><a href="proof-strategies.html">Proof strategies</a></li>
+<li><a href="set-notation-example.html">Set notation example</a></li>
+<li><a href="generating-function.html">Generating function</a></li>
+<li><a href="probability-notes.html">Probability notes</a></li>
+<li><a href="search-data-structures.html">Search data
+structures</a></li>
+<li><a href="tail-command-in-awk.html">Tail command in awk</a></li>
+<li><a href="circumference-of-an-ellipse.html">Circumference of an
+ellipse</a></li>
+</ul>
+</div>
+</body>
+</html>
