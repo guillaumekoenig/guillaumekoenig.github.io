@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Algo review</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: unset;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+  <style>
+    header { margin-bottom: 2em; }
+    body { max-width: 30em; }
+
+    a:not(h1 a), a:visited:not(h1 a) { color: blue; }
+
+    h1 > a { text-decoration: none; }
+
+    .katex { font-size: 1em; }
+
+    .katex-display {
+      overflow-x: auto;
+      padding-block: 10px; /* vertical scroll bug */
+    }
+
+    @media (max-width: 600px) {
+      .katex-display {
+        /* overcome padding on mobile */
+        margin-left: -1em;
+        margin-right: -1em;
+      }
+    }  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><a href="/">Algo review</a></h1>
+<!--<p class="date">2025-10-12 Sat</p>-->
+</header>
+<h3 id="search">1. Search</h3>
+<p><a href="./search-data-structures.html">Search data
+structures</a></p>
+<h3 id="dynamic-programming">2. Dynamic programming</h3>
+<table>
+<caption>Classic recurrence relations</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Output</th>
+<th><code>p(n,k)</code></th>
+<th>How to read</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Partitions of an integer</strong></td>
+<td><code>p(n-k,k) + p(n,k-1)</code></td>
+<td>Either use summand <code>k</code>, or skip for a lower one</td>
+</tr>
+<tr class="even">
+<td><a
+href="https://github.com/guillaumekoenig/projecteuler/blob/master/src/Prb/Prb031.hs"><strong>Ways
+to give change</strong></a></td>
+<td></td>
+<td>Variant; either use coin or skip for a coin of different value</td>
+</tr>
+<tr class="odd">
+<td><a
+href="https://gist.github.com/guillaumekoenig/5197a29086f1dbb35bd0cc78cf820c28"><strong>Combinations</strong></a></td>
+<td><code>p(n-1,k-1) + p(n-1,k)</code></td>
+<td>Either use element from set of <code>n</code> this one time, or skip
+it</td>
+</tr>
+<tr class="even">
+<td><a
+href="https://gist.github.com/guillaumekoenig/a9ba49446721504bc1d021a7a6f6c90c"><strong>Combinations
+with rep</strong></a></td>
+<td><code>p(n,k-1) + p(n-1,k)</code></td>
+<td>Either use element from set of <code>n</code>, or skip it</td>
+</tr>
+</tbody>
+</table>
+<p>Remarks:</p>
+<ul>
+<li>You also need to think through the termination condition(s)</li>
+<li>All of these benefit from computing prior values and looking them up
+to compute the current value (bottom-up dynamic programming)</li>
+</ul>
+<h4 id="fewest-number-of-coins-to-give-change">Fewest number of coins to
+give change</h4>
+<p><code>p(n)=1+min{p(n-c)|c in coins}</code>.</p>
+<h4 id="kadane-maximum-subarray-sum">Kadane: maximum subarray sum</h4>
+<p>Consider the max of all suffix subarrays ending at <code>j</code>:
+<code>p(j)=max(p(j-1)+arr[j],arr[j])</code>. Then you're looking for the
+max over all <code>j</code>s.</p>
+<h4 id="longest-common-substring">Longest common substring</h4>
+<p><code>LCS(i,j)=if s1[i]==s2[j] { 1+LCS(i-1,j-1) } else 0</code>.
+Build the LCS array bottom-up.</p>
+<p>Doesn't work to find palindrome with reverse! eg <code>aaca</code>
+and <code>acaa</code>. You want to test around a given char for
+palindrome. Further, notice that <code>aca</code> is a palindrome, but
+so is <code>bb</code>.</p>
+<h3 id="greedy-algorithms">3. Greedy algorithms</h3>
+<p><em>Many sequence problems rely on maintaining partial solutions as
+you iterate</em>. This results in problems with linear time solutions
+(when it isn't obvious that they would exist at first).</p>
+<h4 id="increasing-triplet-subsequence">Increasing triplet
+subsequence</h4>
+<p>Given an array, say if there exists <code>(i,j,k)</code> such that
+<code>i &lt; j &lt; k</code> and
+<code>arr[i] &lt; arr[j] &lt; arr[k]</code>.</p>
+<p>A match must satisfy:
+<code>min{arr[i]|i&lt;j} &lt; arr[j] &lt; max{arr[k]|j&lt;k}</code>.</p>
+<p>Hence: Build an array of prefixes using min, and an array of suffixes
+using max (both in linear time). Then using them you can check each
+element of <code>arr</code> for an increasing triplet.</p>
+<p>Better: Doable in constant space if you scan <code>arr</code> and
+keep first-min, second-min: then finding one <code>arr[i]</code> &gt;
+second-min is sufficient and necessary for a match to exist.</p>
+<h4 id="minimum-spanning-tree">Minimum spanning tree</h4>
+<p>Kruskal. Start with nodes as disjoint sets. Test edges from minimum
+weight to maximum weight, keeping those that join sets.</p>
+<h3 id="python">4. Python</h3>
+<pre class="python3"><code>for i,v in enumerate(nums):
+    pass</code></pre>
+<p>Reverse a string s="abc": <code>s[::-1]</code>. Can use start:stop
+with regular indices, but beware that 2 and -1 are the same index.</p>
+<p>Last 3 chars: <code>s[-3:]</code>.</p>
+<p><code>sortedcontainers</code>: SortedList/SortedSet/SortedDict, with
+indexing and bisect methods. <code>bisect_left</code> for lowest index
+whose value is ≥.</p>
+<p>Two dimensional array: <code>[[0] * m for _ in range(n)]</code>.
+Force creation of separate lists.</p>
+<p>0 is falsy. Use <code>is not None</code> where appropriate.</p>
+<p>Heaps are under <code>heapq</code> in python. <code>heapify</code> to
+turn a list into a heap (in place). Need <code>heappop</code> (not
+<code>pop</code>!) to remove the min element. You can peek by looking up
+the element at index 0. By default it's a min heap. The trick for max
+heap is to insert opposite values.</p>
+<p>For non-prio queues (eg for BFS), use <code>deque</code> (in
+<code>collections</code>). pop/popleft, append/appendleft.</p>
+<h3 id="other">5. Other</h3>
+<p>Do first 50 of <a
+href="https://www.spoj.com/problems/classical/">spoj classical
+problems</a>.</p>
+</body>
+</html>
