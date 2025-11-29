@@ -1,0 +1,5 @@
+/_site
+/*.code-workspace
+/filter/node_modules
+CLAUDE.local.md
+.*.swp

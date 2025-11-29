@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guillaume Koenig - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+    
+    body {
+      font-family: 'Inter', 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 25px;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    h1 {
+      margin-bottom: 8px;
+      color: #1a365d;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: 0.5px;
+    }
+    
+    h2 {
+      color: #2b6cb0;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-top: 30px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+    
+    .contact-info {
+      margin: 12px 0;
+      color: #4a5568;
+    }
+    
+    .title {
+      font-weight: 400;
+      color: #4a5568;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .job {
+      margin-bottom: 25px;
+    }
+    
+    .job-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #2d3748;
+    }
+    
+    .company {
+      font-weight: 600;
+      display: inline;
+    }
+    
+    .date {
+      font-weight: 400;
+      color: #718096;
+      display: inline;
+      float: right;
+    }
+    
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    
+    li {
+      margin-bottom: 6px;
+    }
+    
+    a {
+      color: #3182ce;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    
+    a:hover {
+      border-color: #3182ce;
+    }
+    
+    .education-item {
+      margin-bottom: 20px;
+    }
+    
+    .link-arrow:after {
+      content: "⤴";
+    }
+    
+    @media print {
+      body {
+        font-size: 11pt;
+        padding: 0;
+        color: #000;
+      }
+      
+      a {
+        color: #000;
+        text-decoration: none;
+        border-bottom: none;
+      }
+      
+      h1 {
+        color: #000;
+      }
+      
+      h2 {
+        color: #000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GUILLAUME KOENIG</h1>
+    <p class="title">Software Engineer at Amazon Web Services | In-memory Databases | Distributed Systems | Redis/Valkey</p>
+    <div class="contact-info">
+      <a href="mailto:guillaume.edward.koenig@gmail.com">guillaume.edward.koenig@gmail.com</a> |
+      <a href="https://www.linkedin.com/in/guillaume-koenig-7a9675145" class="link-arrow">LinkedIn</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>SUMMARY</h2>
+    <p>Experienced software engineer specializing in backend development, distributed systems, and in-memory databases. Proven ability to design scalable architectures, optimize performance, and contribute to open-source projects like Redis/Valkey. Strong debugging, profiling, and problem-solving skills with a deep understanding of low-level system behaviour. Passionate about continuous learning and mentoring engineers.</p>
+  </section>
+
+  <section>
+    <h2>EXPERIENCE</h2>
+    
+    <div class="job">
+      <p class="job-title">Software Engineer <span class="company">| Amazon Web Services (AWS)</span> <span class="date">August 2021 - April 2025</span></p>
+      <p>Working on AWS's Redis-compatible in-memory cache & database (ElastiCache & MemoryDB):</p>
+      <ul>
+        <li>Led the design and implementation of an automated testing framework to validate MemoryDB's strong consistency (linearizable workloads)</li>
+        <li>Developed a Redis workload fuzzer, improving test coverage and reproducing a known issue in a prior version of Redis</li>
+        <li>Ensured that the newly integrated vector search functionality maintained MemoryDB's strong consistency guarantees</li>
+        <li>Mentored two interns and guided engineers in improving their debugging skills. Also conducted technical interviews to assess engineering talent</li>
+        <li>Contributed to Redis/Valkey, fixing a rare edge case in the radix tree implementation <a href="https://github.com/redis/redis/pull/12837" class="link-arrow">GitHub</a> and enhancing memory reporting for more accurate observability in production <a href="https://github.com/valkey-io/valkey/pull/688" class="link-arrow">GitHub</a></li>
+      </ul>
+    </div>
+    
+    <div class="job">
+      <p class="job-title">Software Engineer <span class="company">| Amazon</span> <span class="date">June 2019 - August 2021</span></p>
+      <ul>
+        <li>Developed and launched a new shipment booking interface for China->US imports</li>
+        <li>Provided technical guidance to junior employees and interns</li>
+      </ul>
+    </div>
+    
+    <div class="job">
+      <p class="job-title">Software Engineer <span class="company">| Scality</span> <span class="date">February 2018 - March 2019</span></p>
+      <ul>
+        <li>Worked on a geo-replicated filesystem built on top of object storage, implemented in user-space</li>
+      </ul>
+    </div>
+    
+    <div class="job">
+      <p class="job-title">Back End Developer <span class="company">| Leboncoin.fr</span> <span class="date">September 2013 - December 2017</span></p>
+      <ul>
+        <li>Designed and implemented a traffic distribution system, optimizing content moderation workflows</li>
+        <li>Built an email notification system for personalized content updates</li>
+        <li>Debugged a race condition in an Apache module using GDB, improving system stability</li>
+      </ul>
+    </div>
+    
+    <div class="job">
+      <p class="job-title">Embedded Software Engineer <span class="company">| PHILOG</span> <span class="date">March 2011 - September 2013</span></p>
+      <ul>
+        <li>Integrated drivers from STMicroelectronics and wrote a custom Linux evdev driver for remote controls</li>
+        <li>Debugged microcontrollers via JTAG & GDB</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>EDUCATION</h2>
+    <div class="education-item">
+      <p><strong>Illinois Institute of Technology</strong></p>
+      <p>Master's degree, Computer Science, 2009 - 2010</p>
+      <p>Computer Graphics, Operating Systems, Object-Oriented Analysis and Design, Science of Programming, Operating Systems Design and Implementation, Analytic Models and Simulation of Computer Systems, Machine Learning, Reading and Special Problems</p>
+    </div>
+    
+    <div class="education-item">
+      <p><strong>ENSEIRB-MATMECA</strong></p>
+      <p>Engineer's degree, Computer Science, 2007 - 2009</p>
+    </div>
+    
+    <div class="education-item">
+      <p><strong>Classe préparatoire aux grandes écoles MPSI/MP au lycée Kléber</strong></p>
+      <p>Mathematics and physics, 2005 - 2007</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>TECHNICAL SKILLS</h2>
+    <p><strong>Domains:</strong> Distributed Systems, In-memory Databases, Backend Development, System Programming</p>
+    <p><strong>Technologies:</strong> C, Rust, Python, PostgreSQL, DynamoDB, Redis/Valkey, Linux, GDB</p>
+    <p><strong>Skills:</strong> Debugging, Profiling, Performance Optimization, System Architecture, <a href="https://github.com/search?q=author%3Aguillaumekoenig&type=pullrequests" class="link-arrow">Open-Source Contribution</a></p>
+  </section>
+</body>
+</html>
