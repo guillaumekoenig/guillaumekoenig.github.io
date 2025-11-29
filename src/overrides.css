@@ -1,0 +1,42 @@
+html {
+  font-family: Georgia, serif;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+body {
+  max-width: 30em;
+}
+
+a:not(h1 a), a:visited:not(h1 a) {
+  color: #0057b7;
+}
+
+h1 > a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: unset;
+}
+hr { margin-top: 4em; }
+
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.1em; }
+
+.katex {
+  font-size: 1em;
+}
+
+.katex-display {
+  overflow-x: auto;
+  padding-block: 10px; /* vertical scroll bug */
+}
+
+@media (max-width: 600px) {
+  .katex-display {
+    /* overcome pandoc's default padding on mobile */
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+}
