@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+set -e
+
+git reset @{u}
+git pull --rebase --autostash
+while git reset --soft @^ && git commit --amend -C HEAD; do :; done
