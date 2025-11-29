@@ -1,0 +1,5 @@
+from: markdown-smart+tex_math_single_backslash
+shift-heading-level-by: 1
+template: src/default.html
+filters:
+  - ./filter/filter.js
